@@ -280,14 +280,14 @@
             </div>
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
                 <i class="fa-solid fa-chart-line" style="font-size: 60px; color: var(--brand-blue); margin-bottom: 30px;"></i>
-                <h3>2. 產品風險</h3>
-                <p>幣安 USDe 脫鉤事件</p>
-                <p style="color: var(--text-secondary); font-size: 18px;">獎勵機制與系統內爆</p>
+                <h3>2. 系統風險</h3>
+                <p>幣安 USDe 脫鉤風暴</p>
+                <p style="color: var(--text-secondary); font-size: 18px;">流動性黑洞與交易所孤島</p>
             </div>
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
                 <i class="fa-solid fa-biohazard" style="font-size: 60px; color: var(--risk-color); margin-bottom: 30px;"></i>
-                <h3>3. DeFi 風險</h3>
-                <p>我的百萬學費</p>
+                <h3>3. DeFi 組合風險</h3>
+                <p>Stream Finance 造成 DeFi 金融海嘯</p>
                 <p style="color: var(--text-secondary); font-size: 18px;">隱形傳染與可組合性</p>
             </div>
         </div>
@@ -295,31 +295,46 @@
 
     <!-- Slide 3: Case 1 Intro -->
     <div class="slide" id="slide-3">
-        <h2>1. 保管風險：15 億美元的「一按」</h2>
-        <p>在進入案例前，我們先看<strong>標準安全流程</strong>。業界公認的黃金標準是「冷錢包 + 多重簽名」。</p>
+        <h2>1. 保管風險：盲簽 15 億美元</h2>
+        <p>業界公認的資產保管黃金標準是「冷錢包 + 多重簽名」。</p>
         
-        <div class="diagram-box">
-            <h4 style="color: var(--brand-white); margin-bottom: 30px; text-align: center;">標準多簽流程 (The Golden Standard)</h4>
-            <div class="flow-row">
-                <div class="flow-card">
-                    <strong>1. 線上發起</strong>
-                    <div style="font-size: 16px; color: var(--text-secondary); margin-top: 10px;">電腦產生交易單</div>
-                </div>
-                <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                <!-- Highlight Safe Zone with Blue -->
-                <div class="flow-card" style="border-color: var(--brand-blue); background: rgba(72, 170, 224, 0.1);">
-                    <i class="fa-solid fa-shield-halved" style="color: var(--brand-blue);"></i>
-                    <strong> 2. 離線簽署 (安全防線)</strong>
-                    <div style="font-size: 16px; color: var(--brand-white); margin-top: 10px; text-align: left; padding-left: 20px;">
-                        • 物理接觸裝置<br>
-                        • <strong>核對螢幕資訊</strong> (關鍵)<br>
-                        • 按下實體按鈕
+        <div class="diagram-box" style="display: flex; flex-direction: column; gap: 30px;">
+            <div class="flow-row" style="align-items: stretch;">
+                <!-- Cold Wallet -->
+                <div class="flow-card" style="border-color: var(--brand-blue); text-align: left; flex: 1;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <i class="fa-solid fa-snowflake" style="font-size: 50px; color: var(--brand-blue);"></i>
+                        <h3 style="color: var(--brand-blue); margin: 15px 0;">冷錢包 (Cold Wallet)</h3>
                     </div>
+                    <ul style="color: var(--text-secondary); font-size: 20px; padding-left: 25px; margin-bottom: 0;">
+                        <li style="margin-bottom: 15px;"><strong>隔離網路攻擊：</strong><br>私鑰永遠不接觸網路，駭客無法遠端竊取。</li>
+                        <li><strong>防範惡意軟體：</strong><br>即使電腦中毒，私鑰仍鎖在硬體裝置內。</li>
+                    </ul>
                 </div>
-                <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="flow-card">
-                    <strong>3. 廣播上鏈</strong>
-                    <div style="font-size: 16px; color: var(--text-secondary); margin-top: 10px;">交易生效</div>
+
+                <div style="font-size: 40px; color: var(--text-secondary); align-self: center; font-weight: bold;">+</div>
+
+                <!-- Multi-sig -->
+                <div class="flow-card" style="border-color: var(--brand-blue); text-align: left; flex: 1;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <i class="fa-solid fa-users-gear" style="font-size: 50px; color: var(--brand-blue);"></i>
+                        <h3 style="color: var(--brand-blue); margin: 15px 0;">多重簽名 (Multi-sig)</h3>
+                    </div>
+                    <ul style="color: var(--text-secondary); font-size: 20px; padding-left: 25px; margin-bottom: 0;">
+                        <li style="margin-bottom: 15px;"><strong>隔離單點故障：</strong><br>防止單一私鑰遺失導致資產歸零。</li>
+                        <li><strong>防範內部作惡：</strong><br>單一員工無法挪用資產，需多人共識。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Synthesis -->
+            <div style="background: rgba(72, 170, 224, 0.1); border: 2px solid var(--brand-blue); border-radius: 12px; padding: 20px; text-align: center;">
+                <strong style="font-size: 24px; color: var(--brand-white);">為什麼是黃金標準？</strong>
+                <p style="margin: 10px 0 15px 0; font-size: 20px;">結合了「物理隔絕 (防駭)」與「權限分散 (防賊)」，理論上無懈可擊。</p>
+                <div style="border-top: 1px dashed var(--brand-blue); margin: 10px 40px; padding-top: 15px;">
+                    <p style="margin: 0; font-size: 24px; color: var(--risk-color); font-weight: 700;">
+                        <i class="fa-solid fa-triangle-exclamation"></i> 唯一的例外：如果你不知道自己在簽什麼 (盲簽)。
+                    </p>
                 </div>
             </div>
         </div>
