@@ -12,21 +12,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg-color: #0B0F19;
-            --card-bg: #151B2B;
-            --text-primary: #E2E8F0;
-            --text-secondary: #94A3B8;
+            /* Blocktrend Brand Palette */
             
-            /* Blocktrend Brand Colors */
-            --brand-color: #FF9F1C; /* Blocktrend Orange */
+            /* Primary */
+            --brand-blue: #48AAE0;       /* RGB 72, 170, 224 */
             
-            /* Semantic Colors */
-            --accent-green: #10B981; /* Safe / Success */
-            --accent-red: #EF4444;   /* Danger / Risk */
-            --accent-blue: #3B82F6;  /* Info / Product */
-            --accent-yellow: #F59E0B; /* Warning */
+            /* Secondary */
+            --brand-dark-blue: #2A68A0;  /* RGB 42, 104, 160 */
+            --brand-gray-blue: #475366;  /* RGB 71, 83, 102 */
             
-            --border-color: #334155;
+            /* Accent (Risk/Warning) */
+            --brand-orange: #E07C38;     /* RGB 224, 124, 56 */
+            
+            /* Neutral */
+            --brand-dark-gray: #343434;  /* RGB 52, 52, 52 */
+            --brand-white: #FFFFFF;      /* RGB 255, 255, 255 */
+
+            /* Functional Mapping */
+            --bg-color: var(--brand-dark-gray);
+            --card-bg: var(--brand-gray-blue);
+            --text-primary: var(--brand-white);
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            
+            --primary-color: var(--brand-blue);
+            --risk-color: var(--brand-orange);
+            --border-color: var(--brand-dark-blue);
+            
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -39,7 +51,7 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             font-family: 'Noto Sans TC', sans-serif;
-            overflow: hidden; /* Desktop: Hide scrollbars for slide effect */
+            overflow: hidden;
             height: 100vh;
             width: 100vw;
         }
@@ -64,11 +76,12 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.5s ease, visibility 0.5s ease;
+            /* Subtle Grid using Brand Colors */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
-            overflow-y: hidden; /* Desktop default */
+            overflow-y: hidden;
         }
 
         .slide.active {
@@ -82,39 +95,41 @@
             font-size: 64px;
             line-height: 1.2;
             margin-bottom: 20px;
-            /* Updated Gradient to Brand Orange */
-            background: linear-gradient(to right, #fff, var(--brand-color));
+            background: linear-gradient(to right, var(--brand-white), var(--brand-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         h2 {
             font-size: 48px;
-            color: var(--brand-color); /* Updated to Brand Orange */
+            color: var(--brand-blue); 
             margin-bottom: 40px;
-            border-left: 8px solid var(--brand-color); /* Updated to Brand Orange */
+            border-left: 8px solid var(--brand-blue);
             padding-left: 30px;
         }
 
         h3 {
             font-size: 32px;
-            color: #fff;
+            color: var(--brand-white);
             margin-bottom: 20px;
         }
 
         p, li {
             font-size: 24px;
             line-height: 1.6;
-            color: #CBD5E1;
+            color: var(--text-secondary);
             margin-bottom: 20px;
         }
 
-        strong { color: #fff; font-weight: 700; }
-        .highlight-red { color: var(--accent-red); font-weight: 700; }
+        strong { color: var(--brand-white); font-weight: 700; }
+        
+        /* Utility Classes for Colors */
+        .highlight-red { color: var(--risk-color); font-weight: 700; } /* Maps to Orange */
+        .highlight-blue { color: var(--brand-blue); font-weight: 700; }
 
         /* Components */
         .diagram-box {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.2);
             border: 1px dashed var(--border-color);
             border-radius: 12px;
             padding: 40px;
@@ -133,11 +148,12 @@
             padding: 30px;
             border-radius: 12px;
             border: 2px solid var(--border-color);
+            box-shadow: var(--shadow);
             flex: 1;
             text-align: center;
         }
         
-        .arrow-right { font-size: 30px; color: var(--text-secondary); }
+        .arrow-right { font-size: 30px; color: var(--brand-blue); opacity: 0.8; }
 
         /* Navigation Controls */
         .controls {
@@ -158,12 +174,13 @@
             cursor: pointer;
             font-size: 18px;
             transition: all 0.2s;
+            box-shadow: var(--shadow);
         }
 
         .btn:hover {
-            background: var(--brand-color); /* Updated to Brand Orange */
-            color: #000;
-            border-color: var(--brand-color);
+            background: var(--brand-blue);
+            color: var(--brand-white);
+            border-color: var(--brand-blue);
         }
 
         .page-number {
@@ -178,102 +195,57 @@
         /* Specific Styles for Diagrams */
         .ledger-screen {
             background: #000;
-            border: 4px solid #333;
-            color: #00E676; /* Keep green for ledger text as it mimics real device */
+            border: 4px solid var(--brand-dark-gray);
+            color: var(--brand-blue); /* Replaced Green with Blue */
             padding: 20px;
             font-family: 'Courier New', monospace;
             border-radius: 8px;
+            box-shadow: var(--shadow);
         }
+        
         .computer-screen {
-            background: #fff;
-            color: #000;
+            background: var(--brand-white);
+            color: var(--brand-dark-gray);
             border: 4px solid #ccc;
             padding: 20px;
             border-radius: 8px;
             font-family: sans-serif;
+            box-shadow: var(--shadow);
         }
 
-        /* Responsive Design (Mobile/Tablet) */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .slide {
                 padding: 40px 30px;
-                justify-content: flex-start; /* Align top for scrolling */
-                overflow-y: auto; /* Enable vertical scroll on mobile */
+                justify-content: flex-start;
+                overflow-y: auto;
                 height: 100%;
                 -webkit-overflow-scrolling: touch;
             }
 
-            /* Override inline styles using !important */
             h1[style] { font-size: 42px !important; margin-bottom: 30px !important; }
             h2 { font-size: 32px; padding-left: 20px; margin-bottom: 30px; border-width: 5px; }
             h3 { font-size: 24px; }
             p, li { font-size: 18px; margin-bottom: 15px; }
             .flow-card { padding: 20px; }
             
-            /* Cover Slide adjustments */
             #slide-1 > div[style*="font-size: 48px"] { font-size: 28px !important; margin-bottom: 30px !important; }
             #slide-1 > div[style*="font-size: 32px"] { font-size: 20px !important; }
 
-            /* Flex to Column for Layouts */
-            .flow-row {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            /* Grid to Column */
-            div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
-            }
-
-            /* Flex Containers in Slides */
-            #slide-2 > div[style*="display: flex"] {
-                flex-direction: column;
-                height: auto !important;
-            }
-            
+            .flow-row { flex-direction: column; gap: 15px; }
+            div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 30px !important; }
+            #slide-2 > div[style*="display: flex"] { flex-direction: column; height: auto !important; }
             #slide-5 > .diagram-box > div[style*="display: flex"],
-            #slide-7 .diagram-box > div[style*="display: flex"] {
-                flex-direction: column;
-            }
+            #slide-7 .diagram-box > div[style*="display: flex"] { flex-direction: column; }
 
-            /* Diagram adjustments */
-            .arrow-right {
-                transform: rotate(90deg); /* Rotate arrows down */
-                margin: 5px 0;
-            }
+            .arrow-right { transform: rotate(90deg); margin: 5px 0; }
+            .fa-not-equal { transform: rotate(90deg); margin: 15px 0; }
+            .diagram-box { padding: 20px; margin-top: 10px; }
+
+            .controls { bottom: 20px; right: 20px; gap: 10px; }
+            .btn { padding: 10px 20px; font-size: 16px; opacity: 0.8; }
+            .page-number { bottom: 20px; left: 20px; font-size: 14px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px; }
             
-            .fa-not-equal {
-                transform: rotate(90deg);
-                margin: 15px 0;
-            }
-
-            .diagram-box {
-                padding: 20px;
-                margin-top: 10px;
-            }
-
-            /* Controls reposition */
-            .controls {
-                bottom: 20px;
-                right: 20px;
-                gap: 10px;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 16px;
-                opacity: 0.8;
-            }
-            .page-number {
-                bottom: 20px;
-                left: 20px;
-                font-size: 14px;
-                background: rgba(0,0,0,0.5);
-                padding: 5px 10px;
-                border-radius: 4px;
-            }
-            
-            /* Specific icon sizing for mobile */
             i[style*="font-size: 150px"] { font-size: 100px !important; }
             i[style*="font-size: 60px"] { font-size: 40px !important; margin-bottom: 15px !important; }
         }
@@ -286,12 +258,12 @@
 
     <!-- Slide 1: Cover -->
     <div class="slide active" id="slide-1">
-        <div style="font-family: 'Urbanist', sans-serif; letter-spacing: 4px; color: var(--brand-color); margin-bottom: 20px; font-weight: 700; font-size: 24px;">EXPERIENCE SHARING</div>
+        <div style="font-family: 'Urbanist', sans-serif; letter-spacing: 4px; color: var(--brand-blue); margin-bottom: 20px; font-weight: 700; font-size: 24px;">EXPERIENCE SHARING</div>
         <h1 style="font-size: 80px;">2025 年學費最貴的三堂課：</h1>
-        <div style="font-size: 48px; font-weight: 700; color: #fff; margin-bottom: 60px; line-height: 1.4;">
+        <div style="font-size: 48px; font-weight: 700; color: var(--text-primary); margin-bottom: 60px; line-height: 1.4;">
             Bybit 遭駭、幣安 USDe 脫鉤與 DeFi 海嘯
         </div>
-        <div style="font-size: 32px; color: var(--text-secondary); border-left: 6px solid var(--brand-color); padding-left: 30px;">
+        <div style="font-size: 32px; color: var(--text-secondary); border-left: 6px solid var(--brand-blue); padding-left: 30px;">
             區塊勢｜許明恩
         </div>
     </div>
@@ -301,19 +273,19 @@
         <h2>今日分享架構</h2>
         <div style="display: flex; gap: 40px; height: 60%;">
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
-                <i class="fa-solid fa-user-shield" style="font-size: 60px; color: var(--brand-color); margin-bottom: 30px;"></i>
+                <i class="fa-solid fa-user-shield" style="font-size: 60px; color: var(--brand-blue); margin-bottom: 30px;"></i>
                 <h3>1. 保管風險</h3>
                 <p>Bybit 交易所遭駭 15 億美元</p>
                 <p style="color: var(--text-secondary); font-size: 18px;">盲簽與供應鏈攻擊</p>
             </div>
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
-                <i class="fa-solid fa-chart-line" style="font-size: 60px; color: var(--accent-blue); margin-bottom: 30px;"></i>
+                <i class="fa-solid fa-chart-line" style="font-size: 60px; color: var(--brand-blue); margin-bottom: 30px;"></i>
                 <h3>2. 產品風險</h3>
                 <p>幣安 USDe 脫鉤事件</p>
                 <p style="color: var(--text-secondary); font-size: 18px;">獎勵機制與系統內爆</p>
             </div>
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
-                <i class="fa-solid fa-biohazard" style="font-size: 60px; color: var(--accent-red); margin-bottom: 30px;"></i>
+                <i class="fa-solid fa-biohazard" style="font-size: 60px; color: var(--risk-color); margin-bottom: 30px;"></i>
                 <h3>3. DeFi 風險</h3>
                 <p>我的百萬學費</p>
                 <p style="color: var(--text-secondary); font-size: 18px;">隱形傳染與可組合性</p>
@@ -327,17 +299,18 @@
         <p>在進入案例前，我們先看<strong>標準安全流程</strong>。業界公認的黃金標準是「冷錢包 + 多重簽名」。</p>
         
         <div class="diagram-box">
-            <h4 style="color: #fff; margin-bottom: 30px; text-align: center;">標準多簽流程 (The Golden Standard)</h4>
+            <h4 style="color: var(--brand-white); margin-bottom: 30px; text-align: center;">標準多簽流程 (The Golden Standard)</h4>
             <div class="flow-row">
                 <div class="flow-card">
                     <strong>1. 線上發起</strong>
-                    <div style="font-size: 16px; color: #94A3B8; margin-top: 10px;">電腦產生交易單</div>
+                    <div style="font-size: 16px; color: var(--text-secondary); margin-top: 10px;">電腦產生交易單</div>
                 </div>
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="flow-card" style="border-color: var(--accent-green); background: rgba(16, 185, 129, 0.1);">
-                    <i class="fa-solid fa-shield-halved" style="color: var(--accent-green);"></i>
+                <!-- Highlight Safe Zone with Blue -->
+                <div class="flow-card" style="border-color: var(--brand-blue); background: rgba(72, 170, 224, 0.1);">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--brand-blue);"></i>
                     <strong> 2. 離線簽署 (安全防線)</strong>
-                    <div style="font-size: 16px; color: #fff; margin-top: 10px; text-align: left; padding-left: 20px;">
+                    <div style="font-size: 16px; color: var(--brand-white); margin-top: 10px; text-align: left; padding-left: 20px;">
                         • 物理接觸裝置<br>
                         • <strong>核對螢幕資訊</strong> (關鍵)<br>
                         • 按下實體按鈕
@@ -346,7 +319,7 @@
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
                 <div class="flow-card">
                     <strong>3. 廣播上鏈</strong>
-                    <div style="font-size: 16px; color: #94A3B8; margin-top: 10px;">交易生效</div>
+                    <div style="font-size: 16px; color: var(--text-secondary); margin-top: 10px;">交易生效</div>
                 </div>
             </div>
         </div>
@@ -360,13 +333,14 @@
                 <p><strong>時間：</strong> 2025 年 2 月 21 日</p>
                 <p><strong>受害者：</strong> Bybit 執行長 Ben Zhou</p>
                 <p><strong>手法：</strong> 駭客並未攻破 Bybit 伺服器，而是駭入多簽服務商 <strong>Safe{Wallet} 的 AWS</strong>，竄改了前端代碼。</p>
-                <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--accent-yellow); padding: 20px; margin-top: 30px;">
-                    <strong style="color: var(--accent-yellow);">移花接木 (Bait and Switch)</strong>
+                <!-- Warning Box in Orange -->
+                <div style="background: rgba(224, 124, 56, 0.1); border-left: 4px solid var(--risk-color); padding: 20px; margin-top: 30px;">
+                    <strong style="color: var(--risk-color);">移花接木 (Bait and Switch)</strong>
                     <p style="font-size: 20px; margin: 10px 0;">電腦螢幕顯示的是「官方網站」和「正確轉帳」，但這是一個為執行長量身打造的假象。</p>
                 </div>
             </div>
             <div style="text-align: center;">
-                <i class="fa-solid fa-laptop-code" style="font-size: 150px; color: var(--text-secondary);"></i>
+                <i class="fa-solid fa-laptop-code" style="font-size: 150px; color: var(--text-secondary); opacity: 0.3;"></i>
                 <p style="margin-top: 20px;">受駭的 Safe{Wallet} 前端介面</p>
             </div>
         </div>
@@ -380,27 +354,29 @@
         <div class="diagram-box">
             <div style="display: flex; gap: 40px; align-items: center; justify-content: center;">
                 <div style="flex: 1;">
-                    <div style="text-align: center; color: #94A3B8; margin-bottom: 10px;">電腦螢幕 (駭客偽造)</div>
+                    <div style="text-align: center; color: var(--text-secondary); margin-bottom: 10px;">電腦螢幕 (駭客偽造)</div>
                     <div class="computer-screen">
                         <strong>Safe{Wallet} UI</strong><br><br>
                         Action: Transfer<br>
                         To: Bybit Hot Wallet<br>
-                        <span style="color: green; font-weight: bold;">[Verify & Sign]</span>
+                        <!-- Success color replaced with Blue -->
+                        <span style="color: var(--brand-blue); font-weight: bold;">[Verify & Sign]</span>
                     </div>
                 </div>
 
-                <i class="fa-solid fa-not-equal" style="font-size: 40px; color: var(--accent-red);"></i>
+                <i class="fa-solid fa-not-equal" style="font-size: 40px; color: var(--risk-color);"></i>
 
                 <div style="flex: 1;">
-                    <div style="text-align: center; color: #94A3B8; margin-bottom: 10px;">冷錢包螢幕 (真實指令)</div>
+                    <div style="text-align: center; color: var(--text-secondary); margin-bottom: 10px;">冷錢包螢幕 (真實指令)</div>
                     <div class="ledger-screen">
                         Function: upgradeToAndCall<br>
                         Data: 0x82a... (Malicious)<br>
-                        <span style="border: 1px solid #00E676; padding: 2px 5px; margin-top: 10px; display: inline-block;">Approve?</span>
+                        <!-- Ledger text border in Blue -->
+                        <span style="border: 1px solid var(--brand-blue); padding: 2px 5px; margin-top: 10px; display: inline-block; color: var(--brand-blue);">Approve?</span>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 30px; color: var(--accent-red); font-weight: bold;">
+            <p style="text-align: center; margin-top: 30px; color: var(--risk-color); font-weight: bold;">
                 結果：他信任電腦，忽略了冷錢包上的亂碼，按下了同意。<br>
                 15 億美元權限移交駭客。
             </p>
@@ -412,17 +388,17 @@
         <h2>實務風險觀察：保管</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--accent-green); margin-right: 15px;"></i>
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
                 <strong>所見即所簽 (WYSIWYS)：</strong> 
                 <p style="font-size: 20px; padding-left: 40px;">冷錢包上的小螢幕才是唯一的真相。如果看到 Raw Data (亂碼)，絕對不能簽。</p>
             </li>
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--accent-green); margin-right: 15px;"></i>
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
                 <strong>物理隔離環境：</strong> 
                 <p style="font-size: 20px; padding-left: 40px;">私鑰管理人的簽署電腦應與日常辦公電腦分開 (Air-gapped)，避免社交工程木馬。</p>
             </li>
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--accent-green); margin-right: 15px;"></i>
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
                 <strong>異常中止 SOP：</strong> 
                 <p style="font-size: 20px; padding-left: 40px;">當顯示資訊不一致時，是一線人員自己判斷，還是有強制中止機制？</p>
             </li>
@@ -458,17 +434,18 @@
                 <div style="font-size: 16px; margin-top: 10px;">領取 12% 獎勵</div>
             </div>
             <div class="arrow-right"><i class="fa-solid fa-rotate-right"></i></div>
-            <div class="flow-card" style="border-color: var(--accent-yellow);">
+            <!-- Warning Border: Orange -->
+            <div class="flow-card" style="border-color: var(--risk-color);">
                 <strong>抵押借款</strong>
                 <div style="font-size: 16px; margin-top: 10px;">借出 USDT</div>
             </div>
             <div class="arrow-right"><i class="fa-solid fa-rotate-right"></i></div>
-            <div class="flow-card" style="border-color: var(--accent-red);">
+            <div class="flow-card" style="border-color: var(--risk-color);">
                 <strong>買入更多 USDe</strong>
                 <div style="font-size: 16px; margin-top: 10px;">循環操作 (Looping)</div>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 30px; color: var(--accent-yellow);">
+        <p style="text-align: center; margin-top: 30px; color: var(--risk-color);">
             結果：大戶將槓桿開滿，收益推高至 30%，但風險承受力極低。
         </p>
     </div>
@@ -478,22 +455,22 @@
         <h2>死亡螺旋與孤島效應</h2>
         <div class="diagram-box">
             <div class="flow-row">
-                <div class="flow-card" style="border-color: var(--accent-red);">
-                    <i class="fa-solid fa-newspaper" style="font-size: 30px; margin-bottom: 10px;"></i>
+                <div class="flow-card" style="border-color: var(--risk-color);">
+                    <i class="fa-solid fa-newspaper" style="font-size: 30px; margin-bottom: 10px; color: var(--risk-color);"></i>
                     <strong>導火線</strong>
                     <p style="font-size: 16px;">川普關稅 -> ETH 大跌 -> 資金費率轉負</p>
                 </div>
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="flow-card" style="border-color: var(--accent-red);">
-                    <i class="fa-solid fa-dumpster-fire" style="font-size: 30px; margin-bottom: 10px;"></i>
+                <div class="flow-card" style="border-color: var(--risk-color);">
+                    <i class="fa-solid fa-dumpster-fire" style="font-size: 30px; margin-bottom: 10px; color: var(--risk-color);"></i>
                     <strong>恐慌拋售</strong>
                     <p style="font-size: 16px;">槓桿用戶斷頭 -> 價格脫鉤</p>
                 </div>
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="flow-card" style="border-color: #fff; background: #000;">
+                <div class="flow-card" style="border-color: var(--brand-dark-gray); background: #000; color: #fff;">
                     <i class="fa-solid fa-server" style="font-size: 30px; margin-bottom: 10px;"></i>
-                    <strong>系統卡死</strong>
-                    <p style="font-size: 16px;">外部資金進不來 -> <strong>交易所內爆 (0.65)</strong></p>
+                    <strong style="color: #fff;">系統卡死</strong>
+                    <p style="font-size: 16px; color: #ccc;">外部資金進不來 -> <strong>交易所內爆 (0.65)</strong></p>
                 </div>
             </div>
         </div>
@@ -504,12 +481,12 @@
         <h2>實務風險觀察：產品設計</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--accent-blue); margin-right: 15px;"></i>
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
                 <strong>產品風險邊界：</strong> 
                 <p style="font-size: 20px; padding-left: 40px;">高收益理財是否搭配了高槓桿功能？對比 EtherFi 限制借款上限 (50%)，幣安的無限槓桿是災難主因。</p>
             </li>
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--accent-blue); margin-right: 15px;"></i>
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
                 <strong>系統韌性測試：</strong> 
                 <p style="font-size: 20px; padding-left: 40px;">在極端行情下，出入金通道是否能維持暢通？「孤島效應」會導致單一平台價格深度脫鉤。</p>
             </li>
@@ -529,29 +506,29 @@
         <div class="diagram-box">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
                 <div style="text-align: center;">
-                    <div class="flow-card" style="border-color: var(--accent-blue);">
+                    <div class="flow-card" style="border-color: var(--brand-blue);">
                         <strong>我的資金 (乾淨)</strong><br>USDC
                     </div>
-                    <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin: 20px 0; color: #fff;"></i>
+                    <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin: 20px 0; color: var(--text-secondary); opacity: 0.5;"></i>
                 </div>
                 <div style="text-align: center;">
-                    <div class="flow-card" style="border-color: var(--accent-red);">
+                    <div class="flow-card" style="border-color: var(--risk-color);">
                         <strong>壞帳 (有毒)</strong><br>Stream xUSD
                     </div>
-                    <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin: 20px 0; color: #fff;"></i>
+                    <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin: 20px 0; color: var(--text-secondary); opacity: 0.5;"></i>
                 </div>
             </div>
             
-            <div style="background: var(--card-bg); border: 2px solid var(--accent-yellow); padding: 20px; text-align: center; border-radius: 12px; margin-bottom: 20px;">
-                <strong style="font-size: 24px; color: var(--accent-yellow);">交會點：Silo 借貸協議</strong>
+            <div style="background: var(--card-bg); border: 2px solid var(--risk-color); padding: 20px; text-align: center; border-radius: 12px; margin-bottom: 20px; box-shadow: var(--shadow);">
+                <strong style="font-size: 24px; color: var(--risk-color);">交會點：Silo 借貸協議</strong>
                 <p>Silo 允許借款人用 xUSD 抵押，借走我的 USDC。</p>
             </div>
 
             <div style="text-align: center;">
-                <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin-bottom: 20px; color: #fff;"></i>
-                <div class="flow-card" style="background: #000; border-color: #fff;">
-                    <strong>結果：流動性枯竭</strong>
-                    <p style="color: var(--text-secondary);">我想提款時，池子裡只剩沒人要的 xUSD。</p>
+                <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin-bottom: 20px; color: var(--text-secondary); opacity: 0.5;"></i>
+                <div class="flow-card" style="background: #000; border-color: var(--brand-white); color: #fff;">
+                    <strong style="color: #fff;">結果：流動性枯竭</strong>
+                    <p style="color: #ccc;">我想提款時，池子裡只剩沒人要的 xUSD。</p>
                 </div>
             </div>
         </div>
@@ -562,12 +539,12 @@
         <h2>實務風險觀察：DeFi 投資</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--accent-red); margin-right: 15px;"></i>
+                <i class="fa-solid fa-check" style="color: var(--risk-color); margin-right: 15px;"></i>
                 <strong>隔離可組合性風險：</strong> 
                 <p style="font-size: 20px; padding-left: 40px;">交易所若投入 DeFi，應選擇「隔離池 (Isolated Pool)」模式，避免與垃圾資產混用。</p>
             </li>
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--accent-red); margin-right: 15px;"></i>
+                <i class="fa-solid fa-check" style="color: var(--risk-color); margin-right: 15px;"></i>
                 <strong>抵押品品質：</strong> 
                 <p style="font-size: 20px; padding-left: 40px;">不要只看 APY。必須審查協議接受什麼抵押品？如果是算法穩定幣，風險極高。</p>
             </li>
@@ -578,9 +555,9 @@
     <div class="slide" id="slide-14">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
-            <p style="font-size: 32px; color: #fff;">看見風險，才能管理風險。</p>
+            <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
             
-            <div style="margin-top: 80px; font-size: 40px; color: var(--brand-color);">Q & A</div>
+            <div style="margin-top: 80px; font-size: 40px; color: var(--brand-blue);">Q & A</div>
             
             <div style="margin-top: 100px; color: var(--text-secondary); font-size: 20px;">
                 區塊勢｜許明恩
