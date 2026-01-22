@@ -433,7 +433,7 @@
         
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
             <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 style="color: var(--risk-color); border-bottom: 2px solid var(--risk-color); padding-bottom: 10px; margin-bottom: 20px;">
+                <h3 style="color: var(--risk-color); border-bottom: 2px solid var(--brand-dark-blue); padding-bottom: 10px; margin-bottom: 20px;">
                     <i class="fa-solid fa-bug"></i> 結構性漏洞
                 </h3>
                 <ul style="list-style: none; padding: 0;">
@@ -449,7 +449,7 @@
             </div>
             
             <div style="border-left: 1px dashed var(--brand-dark-blue); padding-left: 30px; display: flex; flex-direction: column; justify-content: center;">
-                <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); padding-bottom: 10px; margin-bottom: 20px;">
+                <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-dark-blue); padding-bottom: 10px; margin-bottom: 20px;">
                     <i class="fa-solid fa-shield-check"></i> 解決方案：清晰簽名
                 </h3>
                 <div style="background: rgba(72, 170, 224, 0.1); padding: 20px; border-radius: 8px; border: 1px solid var(--brand-blue);">
@@ -488,15 +488,15 @@
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-brands fa-aws" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
                     <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">2. 竊取雲端權限</h4>
-                    <p style="font-size: 16px; margin: 0;">駭客從受害電腦中偷走 AWS 登入憑證 (Session Token)，繞過雙重驗證 (MFA)，直接取得 Safe 網站的後台控制權。</p>
+                    <p style="font-size: 16px; margin: 0;">從工程師電腦偷走雲端通行證 (AWS Session Token)，繞過雙重驗證 (MFA)，登入 Safe 後台。</p>
                 </div>
 
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
 
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-solid fa-code" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
-                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">3. 植入針對性代碼</h4>
-                    <p style="font-size: 16px; margin: 0;">修改網頁程式碼 (JavaScript)，設定為「只有當 Bybit 錢包連接時」才觸發攻擊，其他用戶使用則一切正常 (用來規避偵測)。</p>
+                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">3. 修改網頁程式碼</h4>
+                    <p style="font-size: 16px; margin: 0;">植入針對性代碼：只有當 Bybit 的錢包連接時，才會觸發攻擊，其他用戶使用則一切正常。</p>
                 </div>
 
             </div>
@@ -510,34 +510,37 @@
         </div>
     </div>
 
-    <!-- Slide 9: Case 1 Analysis (Refactored) -->
+    <!-- Slide 9: Case 1 Analysis (Refactored - New Style) -->
     <div class="slide" id="slide-9">
         <h2>監理啟示：四層交織的系統性崩潰</h2>
         <p>這不只是中心化交易所掉錢，而是四個環節同時失靈的結果：</p>
         
-        <div class="diagram-box" style="padding: 30px;">
-            <ul style="list-style: none; padding: 0; font-size: 20px;">
-                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
-                    <strong style="color: var(--brand-white);">1. 人員層 (Social Engineering)</strong><br>
-                    <span style="color: var(--text-secondary);">Safe 工程師被鎖定，遭針對性社交攻擊入侵工作站。</span>
-                </li>
-                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
-                    <strong style="color: var(--brand-white);">2. 供應鏈層 (Supply Chain)</strong><br>
-                    <span style="color: var(--text-secondary);">Safe 前端網頁被劫持，官方介面變成駭客工具。</span>
-                </li>
-                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
-                    <strong style="color: var(--brand-white);">3. 技術層 (Hardware limitations)</strong><br>
-                    <span style="color: var(--text-secondary);">冷錢包硬體更新跟不上軟體發展，導致「顯示亂碼」成為常態。</span>
-                </li>
-                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
-                    <strong style="color: var(--brand-white);">4. 操作層 (OpSec Failure)</strong><br>
-                    <span style="color: var(--text-secondary);">Bybit 執行長因習慣亂碼而「盲簽」，最後一道防線失效。</span>
-                </li>
-            </ul>
+        <div class="diagram-box" style="padding: 30px; border: none; background: transparent;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
+                    <strong style="color: var(--brand-blue); font-size: 22px;">1. 人員層 (Social Engineering)</strong>
+                    <p style="margin-top: 10px; color: var(--brand-white);">Safe 工程師被鎖定，遭針對性社交攻擊入侵工作站。</p>
+                </div>
+                
+                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
+                    <strong style="color: var(--brand-blue); font-size: 22px;">2. 供應鏈層 (Supply Chain)</strong>
+                    <p style="margin-top: 10px; color: var(--brand-white);">Safe 前端網頁被劫持，官方介面變成駭客工具。</p>
+                </div>
+                
+                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
+                    <strong style="color: var(--brand-blue); font-size: 22px;">3. 技術層 (Hardware limitations)</strong>
+                    <p style="margin-top: 10px; color: var(--brand-white);">冷錢包硬體更新跟不上軟體發展，導致「顯示亂碼」成為常態。</p>
+                </div>
+                
+                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
+                    <strong style="color: var(--brand-blue); font-size: 22px;">4. 操作層 (OpSec Failure)</strong>
+                    <p style="margin-top: 10px; color: var(--brand-white);">Bybit 執行長因習慣亂碼而「盲簽」，最後一道防線失效。</p>
+                </div>
+            </div>
             
-            <div style="background: rgba(72, 170, 224, 0.1); padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px;">
-                <strong style="color: var(--brand-blue); font-size: 22px;">結論：理想的風控必須涵蓋整條供應鏈</strong>
-                <p style="margin: 5px 0 0 0; font-size: 18px;">只監管 VASP 本身是不夠的，因為風險可能來自其信任的第三方。</p>
+            <div style="background: rgba(42, 104, 160, 0.3); padding: 20px; border-radius: 8px; text-align: center; margin-top: 30px; border: 1px solid var(--brand-dark-blue);">
+                <strong style="color: var(--brand-white); font-size: 24px;">結論：理想的風控必須涵蓋整條供應鏈</strong>
+                <p style="margin: 10px 0 0 0; font-size: 18px; color: var(--text-secondary);">只監管 VASP 本身是不夠的，因為風險可能來自其信任的第三方。</p>
             </div>
         </div>
     </div>
@@ -545,89 +548,127 @@
     <!-- Slide 10: Case 2 Intro -->
     <div class="slide" id="slide-10">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
-        <p>2025 年 10 月，川普關稅引爆市場，但讓 USDe 跌到 0.65 的元兇是交易所的<strong>產品設計</strong>。</p>
+        <p>這場 190 億美元的清算潮，源自於全球最大交易所與成長最快穩定幣的強強聯手。</p>
         
         <div class="diagram-box">
-            <h4>背景知識：USDe 是「合成美元」</h4>
-            <div style="display: flex; gap: 20px; margin-top: 20px;">
+            <div style="display: flex; gap: 40px;">
                 <div style="flex: 1;">
-                    <strong>機制：</strong> 存入 ETH (多單) + 期貨做空 (空單)。
+                    <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); padding-bottom: 10px;">
+                        <i class="fa-brands fa-bitcoin"></i> 幣安 (Binance)
+                    </h3>
+                    <ul style="color: var(--text-secondary); font-size: 20px; padding-left: 20px;">
+                        <li>全球流動性最高的交易所</li>
+                        <li>擁有最龐大的散戶基礎</li>
+                        <li><strong>目標：</strong> 增加平台資金沉澱 (TVL)</li>
+                    </ul>
                 </div>
+                
+                <div style="width: 2px; background: var(--brand-gray-blue);"></div>
+                
                 <div style="flex: 1;">
-                    <strong>風險：</strong> 依靠「資金費率」獲利。本質是期貨策略，非美元儲備。
+                    <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); padding-bottom: 10px;">
+                        <i class="fa-solid fa-flask"></i> USDe (Ethena)
+                    </h3>
+                    <ul style="color: var(--text-secondary); font-size: 20px; padding-left: 20px;">
+                        <li>市值第三大穩定幣 (140億鎂)</li>
+                        <li><strong>機制：</strong> 合成美元 (現貨多單 + 期貨空單)</li>
+                        <li><strong>收益：</strong> 質押獎勵 + 資金費率</li>
+                    </ul>
                 </div>
+            </div>
+            
+            <div style="margin-top: 30px; background: var(--card-bg); padding: 20px; border-radius: 8px; text-align: center;">
+                <strong style="color: var(--brand-white); font-size: 22px;">合作關係：各取所需</strong>
+                <p style="margin: 10px 0 0 0;">
+                    幣安提供用戶與流動性 <i class="fa-solid fa-right-left" style="color: var(--brand-blue); margin: 0 10px;"></i> Ethena 提供高額行銷補貼
+                </p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 11: Case 2 The Mechanism -->
+    <!-- Slide 11: Case 2 The Trap -->
     <div class="slide" id="slide-11">
-        <h2>甜蜜陷阱：12% 補貼與循環槓桿</h2>
-        <p>幣安為了搶市占，推出了「不設上限」的 12% 獎勵活動。</p>
+        <h2>系統性誘因：統一帳戶與無限槓桿</h2>
+        <p>幣安設計了一套機制，鼓勵用戶將 USDe 當作保證金，再借錢買更多 USDe。</p>
         
-        <div class="flow-row" style="margin-top: 40px;">
-            <div class="flow-card">
-                <strong>存入 USDe</strong>
-                <div style="font-size: 16px; margin-top: 10px;">領取 12% 獎勵</div>
+        <div class="flow-row" style="margin-top: 30px; align-items: stretch;">
+            <div class="flow-card" style="flex: 1;">
+                <i class="fa-solid fa-sack-dollar" style="font-size: 40px; color: var(--brand-blue); margin-bottom: 15px;"></i>
+                <strong style="display: block; font-size: 22px; margin-bottom: 10px;">1. 統一帳戶</strong>
+                <p style="font-size: 16px;">給予 USDe 極高的抵押權重 (>90%)，視同現金。</p>
             </div>
-            <div class="arrow-right"><i class="fa-solid fa-rotate-right"></i></div>
-            <!-- Warning Border: Orange -->
-            <div class="flow-card" style="border-color: var(--risk-color);">
-                <strong>抵押借款</strong>
-                <div style="font-size: 16px; margin-top: 10px;">借出 USDT</div>
+            
+            <div class="flow-card" style="flex: 1;">
+                <i class="fa-solid fa-percent" style="font-size: 40px; color: var(--brand-blue); margin-bottom: 15px;"></i>
+                <strong style="display: block; font-size: 22px; margin-bottom: 10px;">2. 12% 補貼</strong>
+                <p style="font-size: 16px;">年化 12% 獎勵，且<span style="color: var(--brand-blue); font-weight: bold;">不設存款上限</span>。</p>
             </div>
-            <div class="arrow-right"><i class="fa-solid fa-rotate-right"></i></div>
-            <div class="flow-card" style="border-color: var(--risk-color);">
-                <strong>買入更多 USDe</strong>
-                <div style="font-size: 16px; margin-top: 10px;">循環操作 (Looping)</div>
+            
+            <div class="flow-card" style="flex: 1; border-color: var(--risk-color);">
+                <i class="fa-solid fa-rotate" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
+                <strong style="display: block; font-size: 22px; margin-bottom: 10px; color: var(--risk-color);">3. 循環貸 (Looping)</strong>
+                <p style="font-size: 16px;">存 USDe -> 借 USDT -> 買 USDe。<br>將收益推高至 30%，風險也倍增。</p>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 30px; color: var(--risk-color);">
-            結果：大戶將槓桿開滿，收益推高至 30%，但風險承受力極低。
+        <p style="text-align: center; margin-top: 30px; font-size: 20px; color: var(--text-secondary);">
+            結果：大量資金在幣安內部堆疊成高槓桿的「火藥庫」。
         </p>
     </div>
 
     <!-- Slide 12: Case 2 The Crash -->
     <div class="slide" id="slide-12">
-        <h2>死亡螺旋與孤島效應</h2>
+        <h2>完美風暴：宏觀黑天鵝與孤島效應</h2>
+        <p>2025 年 10 月，川普關稅推文引發幣圈大跌。幣安內部的系統缺陷被瞬間引爆。</p>
+        
         <div class="diagram-box">
-            <div class="flow-row">
-                <div class="flow-card" style="border-color: var(--risk-color);">
-                    <i class="fa-solid fa-newspaper" style="font-size: 30px; margin-bottom: 10px; color: var(--risk-color);"></i>
-                    <strong>導火線</strong>
-                    <p style="font-size: 16px;">川普關稅 -> ETH 大跌 -> 資金費率轉負</p>
+            <div class="flow-row" style="gap: 20px;">
+                <div class="flow-card" style="border-color: var(--risk-color); padding: 20px;">
+                    <h4 style="color: var(--risk-color); margin: 0 0 10px 0;">1. 流動性氣囊</h4>
+                    <p style="font-size: 16px; margin: 0;">造市商因避險撤單，買盤深度瞬間消失。</p>
                 </div>
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="flow-card" style="border-color: var(--risk-color);">
-                    <i class="fa-solid fa-dumpster-fire" style="font-size: 30px; margin-bottom: 10px; color: var(--risk-color);"></i>
-                    <strong>恐慌拋售</strong>
-                    <p style="font-size: 16px;">槓桿用戶斷頭 -> 價格脫鉤</p>
+                <div class="flow-card" style="border-color: var(--risk-color); padding: 20px;">
+                    <h4 style="color: var(--risk-color); margin: 0 0 10px 0;">2. 內部定價失效</h4>
+                    <p style="font-size: 16px; margin: 0;">幣安採用內部訂單簿定價，而非外部預言機，導致價格失真。</p>
                 </div>
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="flow-card" style="border-color: var(--brand-dark-gray); background: #000; color: #fff;">
-                    <i class="fa-solid fa-server" style="font-size: 30px; margin-bottom: 10px;"></i>
-                    <strong style="color: #fff;">系統卡死</strong>
-                    <p style="font-size: 16px; color: #ccc;">外部資金進不來 -> <strong>交易所內爆 (0.65)</strong></p>
+                <div class="flow-card" style="background: #000; border-color: var(--brand-white); color: #fff; padding: 20px;">
+                    <h4 style="color: #fff; margin: 0 0 10px 0;">3. 交易所孤島</h4>
+                    <p style="font-size: 16px; margin: 0;">系統卡死，外部資金進不來套利。<strong>幣安 USDe 跌至 0.65 (鏈上 0.98)。</strong></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 13: Case 2 Checklist -->
+    <!-- Slide 13: Case 2 Regulatory Insights -->
     <div class="slide" id="slide-13">
-        <h2>實務風險觀察：產品設計</h2>
-        <ul style="list-style: none;">
-            <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>產品風險邊界：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">高收益理財是否搭配了高槓桿功能？對比 EtherFi 限制借款上限 (50%)，幣安的無限槓桿是災難主因。</p>
+        <h2>監理啟示：中心化基礎設施的脆弱性</h2>
+        <ul style="list-style: none; padding: 0; font-size: 22px;">
+            <li style="margin-bottom: 25px;">
+                <i class="fa-solid fa-magnifying-glass-chart" style="color: var(--brand-blue); margin-right: 15px;"></i>
+                <strong>定價機制的審查：</strong> 
+                <p style="font-size: 18px; padding-left: 45px; margin-top: 5px;">
+                    交易所是否過度依賴內部訂單簿定價？對於合成資產，應強制引入外部複合預言機 (Chainlink) 作為熔斷參考。
+                </p>
             </li>
-            <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>系統韌性測試：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">在極端行情下，出入金通道是否能維持暢通？「孤島效應」會導致單一平台價格深度脫鉤。</p>
+            <li style="margin-bottom: 25px;">
+                <i class="fa-solid fa-scale-unbalanced" style="color: var(--brand-blue); margin-right: 15px;"></i>
+                <strong>產品風險邊界 (LTV)：</strong> 
+                <p style="font-size: 18px; padding-left: 45px; margin-top: 5px;">
+                    合成資產 (USDe) 不應享有與原生穩定幣 (USDT) 同等的抵押率。高波動風險資產應限制其槓桿倍數。
+                </p>
+            </li>
+            <li style="margin-bottom: 25px;">
+                <i class="fa-solid fa-server" style="color: var(--brand-blue); margin-right: 15px;"></i>
+                <strong>系統韌性 (System Resilience)：</strong> 
+                <p style="font-size: 18px; padding-left: 45px; margin-top: 5px;">
+                    極端行情下的「孤島效應」是致命的。監管應關注交易所在高負載下的出入金通道是否暢通。
+                </p>
             </li>
         </ul>
+        <div style="text-align: center; margin-top: 20px; font-size: 18px; color: var(--text-secondary);">
+            *事後幣安賠償了 2.83 億美元，承認了平台技術故障的責任。
+        </div>
     </div>
 
     <!-- Slide 14: Case 3 Intro -->
