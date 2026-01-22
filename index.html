@@ -293,14 +293,14 @@
         </div>
     </div>
 
-    <!-- Slide 3: Case 1 Intro -->
+    <!-- Slide 3: Case 1 Intro (Comparison Table) -->
     <div class="slide" id="slide-3">
-        <h2>1. 保管風險：盲簽 15 億美元</h2>
+        <h2>1. 保管風險：Bybit 遭北韓駭走 15 億美元</h2>
         <p>業界公認的資產保管黃金標準是「冷錢包 + 多重簽名」。</p>
         
-        <div class="diagram-box" style="display: flex; flex-direction: column; gap: 30px;">
+        <div class="diagram-box" style="display: flex; flex-direction: column; gap: 40px;">
+            <!-- Features Comparison -->
             <div class="flow-row" style="align-items: stretch;">
-                <!-- Cold Wallet -->
                 <div class="flow-card" style="border-color: var(--brand-blue); text-align: left; flex: 1;">
                     <div style="text-align: center; margin-bottom: 20px;">
                         <i class="fa-solid fa-snowflake" style="font-size: 50px; color: var(--brand-blue);"></i>
@@ -314,7 +314,6 @@
 
                 <div style="font-size: 40px; color: var(--text-secondary); align-self: center; font-weight: bold;">+</div>
 
-                <!-- Multi-sig -->
                 <div class="flow-card" style="border-color: var(--brand-blue); text-align: left; flex: 1;">
                     <div style="text-align: center; margin-bottom: 20px;">
                         <i class="fa-solid fa-users-gear" style="font-size: 50px; color: var(--brand-blue);"></i>
@@ -328,20 +327,54 @@
             </div>
 
             <!-- Synthesis -->
-            <div style="background: rgba(72, 170, 224, 0.1); border: 2px solid var(--brand-blue); border-radius: 12px; padding: 20px; text-align: center;">
-                <strong style="font-size: 24px; color: var(--brand-white);">為什麼是黃金標準？</strong>
-                <p style="margin: 10px 0 15px 0; font-size: 20px;">結合了「物理隔絕 (防駭)」與「權限分散 (防賊)」，理論上無懈可擊。</p>
-                <div style="border-top: 1px dashed var(--brand-blue); margin: 10px 40px; padding-top: 15px;">
-                    <p style="margin: 0; font-size: 24px; color: var(--risk-color); font-weight: 700;">
-                        <i class="fa-solid fa-triangle-exclamation"></i> 唯一的例外：如果你不知道自己在簽什麼 (盲簽)。
-                    </p>
+            <div style="border-top: 1px dashed var(--brand-blue); padding-top: 20px; text-align: center;">
+                <p style="margin: 0; font-size: 24px; color: var(--risk-color); font-weight: 700;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 唯一例外：在步驟 2 閉著眼睛簽署交易 (盲簽)。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Case 1 Process (New Flow Chart Slide) -->
+    <div class="slide" id="slide-4">
+        <h2>標準安全流程：分層負責，互不信任</h2>
+        <p>在 Bybit 案例中，我們必須先理解正常的安全流程長什麼樣子，才能知道問題出在哪。</p>
+
+        <div class="diagram-box" style="margin-top: 40px;">
+            <div class="flow-row" style="gap: 20px;">
+                <div class="flow-card" style="padding: 30px; opacity: 0.8;">
+                    <strong style="color: var(--brand-white); font-size: 24px;">1. 線上發起</strong>
+                    <div style="font-size: 18px; margin-top: 15px;">財務人員建立交易單</div>
+                    <i class="fa-solid fa-desktop" style="font-size: 40px; margin-top: 20px; color: var(--text-secondary);"></i>
+                </div>
+                
+                <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
+                
+                <!-- Highlighted Safe Zone -->
+                <div class="flow-card" style="padding: 30px; border: 3px solid var(--brand-blue); background: rgba(72, 170, 224, 0.15); transform: scale(1.05);">
+                    <strong style="color: var(--brand-blue); font-size: 24px;">2. 離線多簽 (安全防線)</strong>
+                    <div style="font-size: 18px; margin-top: 15px; color: var(--brand-white); font-weight: bold;">主管分別以各自冷錢包簽名</div>
+                    <div style="margin-top: 20px;">
+                        <i class="fa-solid fa-key" style="color: var(--brand-blue); margin: 0 5px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-key" style="color: var(--brand-blue); margin: 0 5px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-key" style="color: var(--brand-blue); margin: 0 5px; font-size: 30px;"></i>
+                    </div>
+                    <div style="margin-top: 15px; font-size: 16px; color: var(--text-secondary);">關鍵：物理隔離環境 + 核對螢幕</div>
+                </div>
+                
+                <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
+                
+                <div class="flow-card" style="padding: 30px; opacity: 0.8;">
+                    <strong style="color: var(--brand-white); font-size: 24px;">3. 廣播上鏈</strong>
+                    <div style="font-size: 18px; margin-top: 15px;">系統湊齊簽名後送出</div>
+                    <i class="fa-solid fa-tower-broadcast" style="font-size: 40px; margin-top: 20px; color: var(--text-secondary);"></i>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 4: Case 1 The Attack -->
-    <div class="slide" id="slide-4">
+    <!-- Slide 5: Case 1 The Attack -->
+    <div class="slide" id="slide-5">
         <h2>事件還原：Lazarus Group 的供應鏈攻擊</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
@@ -361,8 +394,8 @@
         </div>
     </div>
 
-    <!-- Slide 5: Case 1 Blind Signing -->
-    <div class="slide" id="slide-5">
+    <!-- Slide 6: Case 1 Blind Signing -->
+    <div class="slide" id="slide-6">
         <h2>致命瞬間：盲簽 (Blind Signing)</h2>
         <p>Ben 正在執行例行公事：將 30,000 ETH 轉至熱錢包。</p>
         
@@ -398,8 +431,8 @@
         </div>
     </div>
 
-    <!-- Slide 6: Case 1 Checklist -->
-    <div class="slide" id="slide-6">
+    <!-- Slide 7: Case 1 Checklist -->
+    <div class="slide" id="slide-7">
         <h2>實務風險觀察：保管</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -420,8 +453,8 @@
         </ul>
     </div>
 
-    <!-- Slide 7: Case 2 Intro -->
-    <div class="slide" id="slide-7">
+    <!-- Slide 8: Case 2 Intro -->
+    <div class="slide" id="slide-8">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
         <p>2025 年 10 月，川普關稅引爆市場，但讓 USDe 跌到 0.65 的元兇是交易所的<strong>產品設計</strong>。</p>
         
@@ -438,8 +471,8 @@
         </div>
     </div>
 
-    <!-- Slide 8: Case 2 The Mechanism -->
-    <div class="slide" id="slide-8">
+    <!-- Slide 9: Case 2 The Mechanism -->
+    <div class="slide" id="slide-9">
         <h2>甜蜜陷阱：12% 補貼與循環槓桿</h2>
         <p>幣安為了搶市占，推出了「不設上限」的 12% 獎勵活動。</p>
         
@@ -465,8 +498,8 @@
         </p>
     </div>
 
-    <!-- Slide 9: Case 2 The Crash -->
-    <div class="slide" id="slide-9">
+    <!-- Slide 10: Case 2 The Crash -->
+    <div class="slide" id="slide-10">
         <h2>死亡螺旋與孤島效應</h2>
         <div class="diagram-box">
             <div class="flow-row">
@@ -491,8 +524,8 @@
         </div>
     </div>
 
-    <!-- Slide 10: Case 2 Checklist -->
-    <div class="slide" id="slide-10">
+    <!-- Slide 11: Case 2 Checklist -->
+    <div class="slide" id="slide-11">
         <h2>實務風險觀察：產品設計</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -508,15 +541,15 @@
         </ul>
     </div>
 
-    <!-- Slide 11: Case 3 Intro -->
-    <div class="slide" id="slide-11">
+    <!-- Slide 12: Case 3 Intro -->
+    <div class="slide" id="slide-12">
         <h2>3. DeFi 投入風險：我的百萬學費</h2>
         <p>這是我親身經歷的教訓。證明了即使是老手，在 <strong>DeFi 可組合性 (Composability)</strong> 面前也可能像小白一樣無助。</p>
         <p><strong>起點：</strong> 我將 USDC 存入老牌聚合器 Harvest Finance，想穩賺 10% 利息。</p>
     </div>
 
-    <!-- Slide 12: Case 3 The Path -->
-    <div class="slide" id="slide-12">
+    <!-- Slide 13: Case 3 The Path -->
+    <div class="slide" id="slide-13">
         <h2>毒性傳染路徑圖</h2>
         <div class="diagram-box">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -549,8 +582,8 @@
         </div>
     </div>
 
-    <!-- Slide 13: Case 3 Checklist -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 14: Case 3 Checklist -->
+    <div class="slide" id="slide-14">
         <h2>實務風險觀察：DeFi 投資</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -566,8 +599,8 @@
         </ul>
     </div>
 
-    <!-- Slide 14: Conclusion -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 15: Conclusion -->
+    <div class="slide" id="slide-15">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
@@ -581,7 +614,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 14</div>
+    <div class="page-number" id="page-num">1 / 15</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
