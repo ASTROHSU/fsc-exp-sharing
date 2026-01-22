@@ -255,6 +255,7 @@
             background-color: rgba(72, 170, 224, 0.2);
         }
 
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .slide {
                 padding: 40px 30px;
@@ -266,9 +267,11 @@
             .zoom-img { max-height: 250px; }
             .flow-row { flex-direction: column; }
             div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-            /* Adjust QR layout on mobile */
-            #slide-32 > div > div[style*="display: flex"] { flex-direction: column; gap: 40px; align-items: center; }
+            /* Adjust QR layout on mobile - Ensure elements stack and images resize */
+            #slide-32 > div > div[style*="display: flex"] { flex-direction: column; gap: 40px; align-items: center; width: 100%; }
             .qr-img { width: 250px !important; height: 250px !important; }
+            /* Ensure the column containers in slide 32 don't exceed screen width */
+            .end-col { width: 100% !important; max-width: 400px; }
         }
     </style>
 </head>
@@ -1223,7 +1226,7 @@
             
             <div style="display: flex; justify-content: center; gap: 80px; align-items: start;">
                 <!-- Q&A Section -->
-                <div style="display: flex; flex-direction: column; align-items: center; width: 400px;">
+                <div class="end-col" style="display: flex; flex-direction: column; align-items: center; width: 400px;">
                     <div style="font-size: 36px; color: var(--brand-blue); margin-bottom: 20px;">Q & A</div>
                     <a href="https://app.sli.do/event/f4BXbj9FuYpHY39tWaNJzR" target="_blank">
                         <img src="https://duk.tw/2FJ2y6.png" class="qr-img" style="width: 300px; height: 300px;" alt="Slido QR Code">
@@ -1232,9 +1235,11 @@
                 </div>
 
                 <!-- Survey Section -->
-                <div style="display: flex; flex-direction: column; align-items: center; width: 400px;">
+                <div class="end-col" style="display: flex; flex-direction: column; align-items: center; width: 400px;">
                     <div style="font-size: 36px; color: var(--risk-color); margin-bottom: 20px;">滿意度調查</div>
-                    <img src="https://duk.tw/xMBGKM.png" class="qr-img" style="width: 300px; height: 300px; border-color: var(--risk-color);" alt="Survey QR Code">
+                    <a href="https://www.surveycake.com/s/14kR7" target="_blank">
+                        <img src="https://duk.tw/4DT7Wr.png" class="qr-img" style="width: 300px; height: 300px; border-color: var(--risk-color);" alt="Survey QR Code">
+                    </a>
                     <p style="margin-top: 20px; font-size: 20px; color: var(--brand-white);">
                         幫助我講得更好<br>
                         <span style="color: var(--risk-color); font-weight: bold;">🎁 贈送區塊勢付費訂閱</span>
