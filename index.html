@@ -16,10 +16,16 @@
             --card-bg: #151B2B;
             --text-primary: #E2E8F0;
             --text-secondary: #94A3B8;
-            --accent-green: #10B981;
-            --accent-red: #EF4444;
-            --accent-blue: #3B82F6;
-            --accent-yellow: #F59E0B;
+            
+            /* Blocktrend Brand Colors */
+            --brand-color: #FF9F1C; /* Blocktrend Orange */
+            
+            /* Semantic Colors */
+            --accent-green: #10B981; /* Safe / Success */
+            --accent-red: #EF4444;   /* Danger / Risk */
+            --accent-blue: #3B82F6;  /* Info / Product */
+            --accent-yellow: #F59E0B; /* Warning */
+            
             --border-color: #334155;
         }
 
@@ -76,16 +82,17 @@
             font-size: 64px;
             line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #94A3B8);
+            /* Updated Gradient to Brand Orange */
+            background: linear-gradient(to right, #fff, var(--brand-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         h2 {
             font-size: 48px;
-            color: var(--accent-green);
+            color: var(--brand-color); /* Updated to Brand Orange */
             margin-bottom: 40px;
-            border-left: 8px solid var(--accent-green);
+            border-left: 8px solid var(--brand-color); /* Updated to Brand Orange */
             padding-left: 30px;
         }
 
@@ -154,9 +161,9 @@
         }
 
         .btn:hover {
-            background: var(--accent-green);
+            background: var(--brand-color); /* Updated to Brand Orange */
             color: #000;
-            border-color: var(--accent-green);
+            border-color: var(--brand-color);
         }
 
         .page-number {
@@ -172,7 +179,7 @@
         .ledger-screen {
             background: #000;
             border: 4px solid #333;
-            color: #00E676;
+            color: #00E676; /* Keep green for ledger text as it mimics real device */
             padding: 20px;
             font-family: 'Courier New', monospace;
             border-radius: 8px;
@@ -279,12 +286,12 @@
 
     <!-- Slide 1: Cover -->
     <div class="slide active" id="slide-1">
-        <div style="font-family: 'Urbanist', sans-serif; letter-spacing: 4px; color: var(--accent-green); margin-bottom: 20px; font-weight: 700; font-size: 24px;">EXPERIENCE SHARING</div>
+        <div style="font-family: 'Urbanist', sans-serif; letter-spacing: 4px; color: var(--brand-color); margin-bottom: 20px; font-weight: 700; font-size: 24px;">EXPERIENCE SHARING</div>
         <h1 style="font-size: 80px;">2025 年學費最貴的三堂課：</h1>
         <div style="font-size: 48px; font-weight: 700; color: #fff; margin-bottom: 60px; line-height: 1.4;">
             Bybit 遭駭、幣安 USDe 脫鉤與 DeFi 海嘯
         </div>
-        <div style="font-size: 32px; color: var(--text-secondary); border-left: 6px solid var(--accent-green); padding-left: 30px;">
+        <div style="font-size: 32px; color: var(--text-secondary); border-left: 6px solid var(--brand-color); padding-left: 30px;">
             區塊勢｜許明恩
         </div>
     </div>
@@ -294,7 +301,7 @@
         <h2>今日分享架構</h2>
         <div style="display: flex; gap: 40px; height: 60%;">
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
-                <i class="fa-solid fa-user-shield" style="font-size: 60px; color: var(--accent-green); margin-bottom: 30px;"></i>
+                <i class="fa-solid fa-user-shield" style="font-size: 60px; color: var(--brand-color); margin-bottom: 30px;"></i>
                 <h3>1. 保管風險</h3>
                 <p>Bybit 交易所遭駭 15 億美元</p>
                 <p style="color: var(--text-secondary); font-size: 18px;">盲簽與供應鏈攻擊</p>
@@ -573,7 +580,7 @@
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: #fff;">看見風險，才能管理風險。</p>
             
-            <div style="margin-top: 80px; font-size: 40px; color: var(--accent-green);">Q & A</div>
+            <div style="margin-top: 80px; font-size: 40px; color: var(--brand-color);">Q & A</div>
             
             <div style="margin-top: 100px; color: var(--text-secondary); font-size: 20px;">
                 區塊勢｜許明恩
