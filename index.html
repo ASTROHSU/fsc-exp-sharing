@@ -879,7 +879,13 @@
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
                 <ul style="list-style: none; padding: 0; font-size: 20px;">
-                    <!-- Removed "誤會一場" list item -->
+                    <li style="margin-bottom: 25px;">
+                        <i class="fa-solid fa-circle-xmark" style="color: var(--risk-color); margin-right: 10px;"></i>
+                        <strong>誤會一場：</strong>
+                        <p style="margin-top: 5px; color: var(--text-secondary);">
+                            大家誤以為是 USDe 脫鉤。其實，鏈上價格始終維持在 0.98 以上，只有幣安內爆。
+                        </p>
+                    </li>
                     <li style="margin-bottom: 25px;">
                         <i class="fa-solid fa-bomb" style="color: var(--risk-color); margin-right: 10px;"></i>
                         <strong>關鍵人禍：</strong>
@@ -954,97 +960,185 @@
         </div>
     </div>
 
-    <!-- Slide 21: Case 2 Regulatory Insights -->
+    <!-- Slide 21: Transition 3 (New) -->
     <div class="slide" id="slide-21">
-        <h2>監理啟示：中心化基礎設施的脆弱性</h2>
-        <ul style="list-style: none; padding: 0; font-size: 22px;">
-            <li style="margin-bottom: 25px;">
-                <i class="fa-solid fa-magnifying-glass-chart" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>定價機制的審查：</strong> 
-                <p style="font-size: 18px; padding-left: 45px; margin-top: 5px;">
-                    交易所是否過度依賴內部訂單簿定價？對於合成資產，應強制引入外部複合預言機 (Chainlink) 作為熔斷參考。
-                </p>
-            </li>
-            <li style="margin-bottom: 25px;">
-                <i class="fa-solid fa-scale-unbalanced" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>產品風險邊界 (LTV)：</strong> 
-                <p style="font-size: 18px; padding-left: 45px; margin-top: 5px;">
-                    合成資產 (USDe) 不應享有與原生穩定幣 (USDT) 同等的抵押率。高波動風險資產應限制其槓桿倍數。
-                </p>
-            </li>
-            <li style="margin-bottom: 25px;">
-                <i class="fa-solid fa-server" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>系統韌性 (System Resilience)：</strong> 
-                <p style="font-size: 18px; padding-left: 45px; margin-top: 5px;">
-                    極端行情下的「孤島效應」是致命的。監管應關注交易所在高負載下的出入金通道是否暢通。
-                </p>
-            </li>
-        </ul>
-        <div style="text-align: center; margin-top: 20px; font-size: 18px; color: var(--text-secondary);">
-            *事後幣安賠償了 2.83 億美元，承認了平台技術故障的責任。
+        <div style="text-align: center; border: 4px solid var(--risk-color); padding: 60px; border-radius: 20px;">
+            <i class="fa-solid fa-biohazard" style="font-size: 100px; color: var(--risk-color); margin-bottom: 40px;"></i>
+            <h2 style="font-size: 64px; border: none; padding: 0; margin-bottom: 20px; color: var(--risk-color);">第三部分：DeFi 組合風險</h2>
+            <p style="font-size: 32px; color: var(--text-secondary);">Stream Finance 隱形傳染鏈</p>
         </div>
     </div>
 
-    <!-- Slide 22: Case 3 Intro -->
+    <!-- Slide 22: Case 3 Intro (Personal Story) -->
     <div class="slide" id="slide-22">
         <h2>3. DeFi 投入風險：我的百萬學費</h2>
-        <p>這是我親身經歷的教訓。證明了即使是老手，在 <strong>DeFi 可組合性 (Composability)</strong> 面前也可能像小白一樣無助。</p>
-        <p><strong>起點：</strong> 我將 USDC 存入老牌聚合器 Harvest Finance，想穩賺 10% 利息。</p>
+        <p>這不是理論，這是我個人的真實故事。我以為我很安全，因為我投的是「收益聚合器」。</p>
+        
+        <div class="diagram-box">
+            <div style="display: flex; gap: 40px; align-items: center;">
+                <div style="flex: 1;">
+                    <h3 style="color: var(--brand-blue); margin-bottom: 15px;">我的投資邏輯 (保守派)</h3>
+                    <ul style="color: var(--text-secondary); font-size: 20px; padding-left: 20px;">
+                        <li><strong>資產：</strong> USDC / USDT (美元穩定幣)</li>
+                        <li><strong>平台：</strong> Harvest Finance (Autopilot) & OKX Earn</li>
+                        <li><strong>預期收益：</strong> 9% 年化 (市場均值)</li>
+                        <li><strong>心態：</strong> 「交給機器人自動配置最安全」</li>
+                    </ul>
+                </div>
+                
+                <div style="font-size: 40px; color: var(--text-secondary);"><i class="fa-solid fa-arrow-right"></i></div>
+                
+                <div style="flex: 1; border: 2px solid var(--risk-color); padding: 20px; border-radius: 12px; background: rgba(224, 124, 56, 0.1);">
+                    <h3 style="color: var(--risk-color); margin-bottom: 15px;">結果：無法提領</h3>
+                    <p style="font-size: 20px; color: var(--text-secondary);">
+                        當我看到 Stream Finance 壞帳新聞時，以為跟我無關。<br>
+                        結果去 Harvest 提款，發現流動性枯竭。<br>
+                        <strong>原來我的錢，被機器人自動投進了火坑。</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Slide 23: Case 3 The Path -->
+    <!-- Slide 23: Case 3 Origin (Black Box) -->
     <div class="slide" id="slide-23">
-        <h2>毒性傳染路徑圖</h2>
+        <h2>危機起源：黑箱與謊言 (Stream Finance)</h2>
+        <p>這起事件的核心不是代碼漏洞，而是傳統金融最常見的「挪用公款」與「欺詐」。</p>
+        
+        <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div>
+                <strong style="color: var(--brand-white); font-size: 24px;">9,300 萬美元去哪了？</strong>
+                <ul style="margin-top: 15px; color: var(--text-secondary); font-size: 20px;">
+                    <li style="margin-bottom: 15px;">Stream Finance 是一個「鏈下資產管理」協議。</li>
+                    <li style="margin-bottom: 15px;">資金交給外部基金經理 Ryan DeMattia 操作。</li>
+                    <li style="margin-bottom: 15px;"><strong>真相：</strong> 經理個人交易虧損，挪用協議資產 (用戶資金) 補保證金。</li>
+                </ul>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--risk-color);">
+                <strong style="color: var(--risk-color); font-size: 22px;">荒謬的理由</strong>
+                <p style="margin-top: 10px; font-size: 18px; color: var(--text-secondary);">
+                    當創辦人追問資金去向時，經理的藉口是：<br>
+                    <br>
+                    <em>「我出車禍了，存私鑰的筆記型電腦被撞壞了。」</em>
+                    <br><br>
+                    這個拙劣的謊言拖延了數週，直到資金徹底歸零。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 24: Case 3 Contagion (Jenga) -->
+    <div class="slide" id="slide-24">
+        <h2>連鎖反應：DeFi 疊疊樂 (Jenga)</h2>
+        <p>單點壞帳如何演變成 2.85 億美元的系統性債務？關鍵在於「風險策展人」的失職。</p>
+        
         <div class="diagram-box">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                <div style="text-align: center;">
-                    <div class="flow-card" style="border-color: var(--brand-blue);">
-                        <strong>我的資金 (乾淨)</strong><br>USDC
-                    </div>
-                    <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin: 20px 0; color: var(--text-secondary); opacity: 0.5;"></i>
+            <div class="flow-row" style="align-items: flex-start;">
+                <div class="flow-card" style="border-color: var(--risk-color);">
+                    <strong style="font-size: 20px; color: var(--risk-color);">1. 毒資產源頭</strong>
+                    <div style="font-size: 16px; margin-top: 10px;">Stream Finance (xUSD)<br>內含 9300 萬壞帳</div>
                 </div>
-                <div style="text-align: center;">
-                    <div class="flow-card" style="border-color: var(--risk-color);">
-                        <strong>壞帳 (有毒)</strong><br>Stream xUSD
-                    </div>
-                    <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin: 20px 0; color: var(--text-secondary); opacity: 0.5;"></i>
+                
+                <div class="arrow-right" style="margin-top: 30px;"><i class="fa-solid fa-arrow-right"></i></div>
+                
+                <div class="flow-card">
+                    <strong style="font-size: 20px; color: var(--brand-white);">2. 滲透借貸協議</strong>
+                    <div style="font-size: 16px; margin-top: 10px;">Euler / Morpho / Silo</div>
+                    <div style="margin-top: 5px; font-size: 14px; color: var(--text-secondary);">接受 xUSD 作為抵押品</div>
+                </div>
+                
+                <div class="arrow-right" style="margin-top: 30px;"><i class="fa-solid fa-arrow-right"></i></div>
+                
+                <div class="flow-card" style="border-color: var(--brand-blue);">
+                    <strong style="font-size: 20px; color: var(--brand-blue);">3. 風險策展人 (失職)</strong>
+                    <div style="font-size: 16px; margin-top: 10px;">TelosC / MEV Capital</div>
+                    <div style="margin-top: 5px; font-size: 14px; color: var(--text-secondary);">為了高收益，將用戶的 USDC/ETH 借給 xUSD 持有者</div>
                 </div>
             </div>
             
-            <div style="background: var(--card-bg); border: 2px solid var(--risk-color); padding: 20px; text-align: center; border-radius: 12px; margin-bottom: 20px; box-shadow: var(--shadow);">
-                <strong style="font-size: 24px; color: var(--risk-color);">交會點：Silo 借貸協議</strong>
-                <p>Silo 允許借款人用 xUSD 抵押，借走我的 USDC。</p>
-            </div>
-
-            <div style="text-align: center;">
-                <i class="fa-solid fa-arrow-down" style="font-size: 30px; margin-bottom: 20px; color: var(--text-secondary); opacity: 0.5;"></i>
-                <div class="flow-card" style="background: #000; border-color: var(--brand-white); color: #fff;">
-                    <strong style="color: #fff;">結果：流動性枯竭</strong>
-                    <p style="color: #ccc;">我想提款時，池子裡只剩沒人要的 xUSD。</p>
-                </div>
+            <div style="text-align: center; margin-top: 30px; border-top: 1px dashed var(--risk-color); padding-top: 20px;">
+                <p style="font-size: 22px; color: var(--risk-color); font-weight: bold;">
+                    結果：當 xUSD 歸零，借出去的 USDC/ETH 全部變成壞帳 (Bad Debt)。<br>
+                    我的錢 (在步驟 3) 就這樣沒了。
+                </p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 24: Case 3 Checklist -->
-    <div class="slide" id="slide-24">
-        <h2>實務風險觀察：DeFi 投資</h2>
+    <!-- Slide 25: Case 3 Scale -->
+    <div class="slide" id="slide-25">
+        <h2>規模與代價：受害者全景圖</h2>
+        <p>這場危機波及了至少七個區塊鏈網絡，總計影響金額超過 2.85 億美元。</p>
+        
+        <table class="math-table" style="font-size: 18px;">
+            <thead>
+                <tr>
+                    <th>受害實體</th>
+                    <th>角色</th>
+                    <th>損失/曝險金額</th>
+                    <th>影響性質</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Stream Finance</td>
+                    <td>始作俑者</td>
+                    <td>$93,000,000</td>
+                    <td>直接被挪用，協議破產</td>
+                </tr>
+                <tr>
+                    <td><strong>TelosC</strong></td>
+                    <td>風險策展人</td>
+                    <td>$123,600,000</td>
+                    <td>Euler/Morpho 金庫流動性枯竭，用戶無法提款</td>
+                </tr>
+                <tr>
+                    <td><strong>Elixir (deUSD)</strong></td>
+                    <td>穩定幣發行商</td>
+                    <td>$68,000,000</td>
+                    <td>65% 儲備金違約，項目終止 (Sunset)</td>
+                </tr>
+                <tr>
+                    <td>MEV Capital</td>
+                    <td>風險策展人</td>
+                    <td>$25,400,000</td>
+                    <td>金庫被強制清算，聲譽受損</td>
+                </tr>
+                <tr style="border-top: 2px solid var(--risk-color);">
+                    <td><strong>總計</strong></td>
+                    <td>-</td>
+                    <td><strong style="color: var(--risk-color); font-size: 24px;">~$285,000,000</strong></td>
+                    <td>連鎖債務違約</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Slide 26: Case 3 Regulatory Insights -->
+    <div class="slide" id="slide-26">
+        <h2>監理啟示：鏈下資產管理的監管邊界</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--risk-color); margin-right: 15px;"></i>
-                <strong>隔離可組合性風險：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">交易所若投入 DeFi，應選擇「隔離池 (Isolated Pool)」模式，避免與垃圾資產混用。</p>
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
+                <strong>區分純鏈上與鏈下管理：</strong> 
+                <p style="font-size: 20px; padding-left: 40px;">Stream Finance 雖然是 DeFi 協議，但核心業務是將錢交給「人」去操作。這類協議應被視為資產管理公司監管，而非純軟體。</p>
             </li>
             <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--risk-color); margin-right: 15px;"></i>
-                <strong>抵押品品質：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">不要只看 APY。必須審查協議接受什麼抵押品？如果是算法穩定幣，風險極高。</p>
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
+                <strong>儲備證明 (PoR) 的即時性：</strong> 
+                <p style="font-size: 20px; padding-left: 40px;">如果資產離開了鏈上智能合約，必須有 oracle 或審計機制實時回報鏈下餘額。不能等到「筆記本壞了」才發現錢沒了。</p>
+            </li>
+            <li style="margin-bottom: 30px;">
+                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
+                <strong>風險策展人的責任：</strong> 
+                <p style="font-size: 20px; padding-left: 40px;">像 Harvest/TelosC 這類幫用戶挑選標的的「中介」，應承擔盡職調查 (Due Diligence) 的法律責任。</p>
             </li>
         </ul>
     </div>
 
-    <!-- Slide 25: Conclusion -->
-    <div class="slide" id="slide-25">
+    <!-- Slide 27: Conclusion -->
+    <div class="slide" id="slide-27">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
@@ -1058,7 +1152,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 25</div>
+    <div class="page-number" id="page-num">1 / 27</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
