@@ -589,7 +589,7 @@
         </div>
     </div>
 
-    <!-- Slide 12: Case 2 Intro (Simplified - No English) -->
+    <!-- Slide 12: Case 2 Intro -->
     <div class="slide" id="slide-12">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
         <p>這場 190 億美元的清算潮，源自於全球最大交易所與成長最快穩定幣的強強聯手。</p>
@@ -630,8 +630,46 @@
         </div>
     </div>
 
-    <!-- Slide 13: Case 2 The Trap -->
+    <!-- Slide 13: USDe Mechanism (NEW) -->
     <div class="slide" id="slide-13">
+        <h2>USDe 的收益來源：資金費率 (Funding Rate)</h2>
+        <p>永續合約沒有到期日，靠「資金費率」來錨定現貨價格。</p>
+        
+        <div class="diagram-box">
+            <div style="display: flex; gap: 40px; justify-content: center; align-items: center; margin-bottom: 30px;">
+                <div style="text-align: center; width: 40%;">
+                    <i class="fa-solid fa-arrow-trend-up" style="font-size: 60px; color: var(--brand-blue);"></i>
+                    <h3 style="margin: 15px 0;">牛市 (多 > 空)</h3>
+                    <div style="background: rgba(72, 170, 224, 0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--brand-blue);">
+                        做多者 <i class="fa-solid fa-money-bill-transfer" style="margin: 0 5px;"></i> <strong>做空者 (Ethena)</strong><br>
+                        <span style="color: var(--brand-blue); font-weight: bold;">Ethena 收息</span>
+                    </div>
+                </div>
+                
+                <div style="width: 2px; height: 150px; background: var(--border-color);"></div>
+
+                <div style="text-align: center; width: 40%;">
+                    <i class="fa-solid fa-arrow-trend-down" style="font-size: 60px; color: var(--risk-color);"></i>
+                    <h3 style="margin: 15px 0;">熊市 (空 > 多)</h3>
+                    <div style="background: rgba(224, 124, 56, 0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--risk-color);">
+                        <strong>做空者 (Ethena)</strong> <i class="fa-solid fa-money-bill-transfer" style="margin: 0 5px;"></i> 做多者<br>
+                        <span style="color: var(--risk-color); font-weight: bold;">Ethena 付息</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: var(--card-bg); padding: 20px; border-radius: 12px; border: 2px solid var(--brand-gray-blue);">
+                <strong style="color: var(--brand-white); font-size: 22px;">Ethena 的 Delta Neutral 策略</strong>
+                <p style="margin-top: 10px; font-size: 18px;">
+                    持有現貨 ETH (多頭) + 開設等值永續合約空單 (空頭)。<br>
+                    在長期牛市中，Ethena 作為「空頭」方，持續賺取多頭支付的資金費率，以此支撐 USDe 系統收益。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 14: Case 2 The Trap -->
+    <div class="slide" id="slide-14">
         <h2>系統性誘因：統一帳戶與無限槓桿</h2>
         <p>幣安設計了一套機制，鼓勵用戶將 USDe 當作保證金，再借錢買更多 USDe。</p>
         
@@ -651,7 +689,7 @@
             <div class="flow-card" style="flex: 1; border-color: var(--risk-color);">
                 <i class="fa-solid fa-rotate" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
                 <strong style="display: block; font-size: 22px; margin-bottom: 10px; color: var(--risk-color);">3. 循環貸 (Looping)</strong>
-                <p style="font-size: 16px;">存 USDe -> 借 USDT -> 買 USDe。<br>將收益推高至 30%，風險也倍增。</p>
+                <p style="font-size: 16px;">存 USDe -> 借 USDT -> 買 USDe。<br>將收益推高至 20%，風險也倍增。</p>
             </div>
         </div>
         <p style="text-align: center; margin-top: 30px; font-size: 20px; color: var(--text-secondary);">
@@ -659,8 +697,8 @@
         </p>
     </div>
 
-    <!-- Slide 14: Case 2 The Math (NEW) -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 15: Case 2 The Math -->
+    <div class="slide" id="slide-15">
         <h2>循環貸：如何憑空變出 20% 年化？</h2>
         <p>在 12% 補貼與 5% 借款成本的利差下，槓桿成為了收益放大器。</p>
         
@@ -711,23 +749,17 @@
             </tbody>
         </table>
         
-        <div style="margin-top: 20px; text-align: center;">
-            <div style="display: inline-block; background: rgba(224, 124, 56, 0.1); border: 2px solid var(--risk-color); padding: 15px 30px; border-radius: 8px;">
-                <p style="margin: 0; font-size: 20px; color: var(--risk-color); font-weight: bold;">代價： 只要 USDe 脫鉤，2.4 倍的槓桿就會觸發清算。</p>
-            </div>
-            
-            <div style="margin-top: 15px; font-size: 18px; color: var(--text-secondary); text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
-                <strong>清算價格試算：</strong><br>
-                假設清算門檻 (LTV) 為 90%<br>
-                <span style="font-family: monospace; color: var(--brand-blue);">清算價格 = 總債務 / (總抵押品數量 * 清算LTV)</span><br>
-                <span style="font-family: monospace;">$0.655 = $14,400 / ($24,400 * 0.9)</span><br>
-                <span style="color: var(--risk-color); font-weight: bold;">結論：只要 USDe 價格跌破 0.66，帳戶直接歸零。</span>
-            </div>
+        <div style="margin-top: 30px; font-size: 18px; color: var(--text-secondary); text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
+            <strong>清算價格試算：</strong><br>
+            假設清算門檻 (LTV) 為 90%<br>
+            <span style="font-family: monospace; color: var(--brand-blue);">清算價格 = 總債務 / (總抵押品數量 * 清算LTV)</span><br>
+            <span style="font-family: monospace;">$0.655 = $14,400 / ($24,400 * 0.9)</span><br>
+            <span style="color: var(--risk-color); font-weight: bold;">結論：只要 USDe 價格跌破 0.66，帳戶直接歸零。</span>
         </div>
     </div>
 
-    <!-- Slide 15: Case 2 The Crash Analysis (Refined) -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 16: Case 2 The Crash Analysis -->
+    <div class="slide" id="slide-16">
         <h2>導火線：宏觀恐慌與流動性撤退</h2>
         <p>2025 年 10 月，一個外部消息點燃了內部的火藥庫。</p>
         
@@ -743,7 +775,7 @@
                     </li>
                     <li style="margin-bottom: 20px;">
                         <strong>ETH 暴跌與贖回潮</strong>
-                        <p style="font-size: 18px; color: var(--text-secondary);">ETH 大跌導致 Ethena 的期貨空單獲利，但恐慌用戶只想把手中的 USDe 換回 USDT 現金。</p>
+                        <p style="font-size: 18px; color: var(--text-secondary);">ETH 大跌、Ethena 的期貨空單獲利，但恐慌用戶只想把手中的 USDe 換回 USDT 現金。</p>
                     </li>
                 </ul>
             </div>
@@ -766,8 +798,8 @@
         </div>
     </div>
 
-    <!-- Slide 16: The Explosion (New) -->
-    <div class="slide" id="slide-16">
+    <!-- Slide 17: The Explosion -->
+    <div class="slide" id="slide-17">
         <h2>連鎖反應：從火藥庫到核爆</h2>
         <p>火藥庫 (高槓桿) + 點火 (川普) + 封閉空間 (系統卡死) = 完美風暴</p>
         
@@ -810,8 +842,8 @@
         </div>
     </div>
 
-    <!-- Slide 17: Case 2 Regulatory Insights -->
-    <div class="slide" id="slide-17">
+    <!-- Slide 18: Case 2 Regulatory Insights -->
+    <div class="slide" id="slide-18">
         <h2>監理啟示：中心化基礎設施的脆弱性</h2>
         <ul style="list-style: none; padding: 0; font-size: 22px;">
             <li style="margin-bottom: 25px;">
@@ -841,15 +873,15 @@
         </div>
     </div>
 
-    <!-- Slide 18: Case 3 Intro -->
-    <div class="slide" id="slide-18">
+    <!-- Slide 19: Case 3 Intro -->
+    <div class="slide" id="slide-19">
         <h2>3. DeFi 投入風險：我的百萬學費</h2>
         <p>這是我親身經歷的教訓。證明了即使是老手，在 <strong>DeFi 可組合性 (Composability)</strong> 面前也可能像小白一樣無助。</p>
         <p><strong>起點：</strong> 我將 USDC 存入老牌聚合器 Harvest Finance，想穩賺 10% 利息。</p>
     </div>
 
-    <!-- Slide 19: Case 3 The Path -->
-    <div class="slide" id="slide-19">
+    <!-- Slide 20: Case 3 The Path -->
+    <div class="slide" id="slide-20">
         <h2>毒性傳染路徑圖</h2>
         <div class="diagram-box">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -882,8 +914,8 @@
         </div>
     </div>
 
-    <!-- Slide 20: Case 3 Checklist -->
-    <div class="slide" id="slide-20">
+    <!-- Slide 21: Case 3 Checklist -->
+    <div class="slide" id="slide-21">
         <h2>實務風險觀察：DeFi 投資</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -899,8 +931,8 @@
         </ul>
     </div>
 
-    <!-- Slide 21: Conclusion -->
-    <div class="slide" id="slide-21">
+    <!-- Slide 22: Conclusion -->
+    <div class="slide" id="slide-22">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
@@ -914,7 +946,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 21</div>
+    <div class="page-number" id="page-num">1 / 22</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
