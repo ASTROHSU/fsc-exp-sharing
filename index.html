@@ -213,6 +213,34 @@
             box-shadow: var(--shadow);
         }
 
+        /* Tables for Math Slide */
+        .math-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        .math-table th {
+            background-color: var(--brand-blue);
+            color: var(--brand-white);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .math-table td {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        .math-table tr:last-child td {
+            border-bottom: none;
+            font-weight: bold;
+            color: var(--brand-white);
+            background-color: rgba(72, 170, 224, 0.2);
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .slide {
@@ -293,8 +321,17 @@
         </div>
     </div>
 
-    <!-- Slide 3: Case 1 Intro (Comparison Table) -->
+    <!-- Slide 3: Transition 1 (NEW) -->
     <div class="slide" id="slide-3">
+        <div style="text-align: center; border: 4px solid var(--brand-blue); padding: 60px; border-radius: 20px;">
+            <i class="fa-solid fa-user-shield" style="font-size: 100px; color: var(--brand-blue); margin-bottom: 40px;"></i>
+            <h2 style="font-size: 64px; border: none; padding: 0; margin-bottom: 20px;">第一部分：保管風險</h2>
+            <p style="font-size: 32px; color: var(--text-secondary);">15 億美元的教訓</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: Case 1 Intro (Comparison Table) -->
+    <div class="slide" id="slide-4">
         <h2>1. 保管風險：Bybit 遭北韓駭走 15 億美元</h2>
         <p>業界公認的資產保管黃金標準是「冷錢包 + 多重簽名」。</p>
         
@@ -328,8 +365,8 @@
         </div>
     </div>
 
-    <!-- Slide 4: Case 1 Process (New Flow Chart Slide) -->
-    <div class="slide" id="slide-4">
+    <!-- Slide 5: Case 1 Process -->
+    <div class="slide" id="slide-5">
         <h2>標準安全流程：分層負責，互不信任</h2>
         <p>在 Bybit 案例中，使用的交易簽署流程如下圖：</p>
 
@@ -368,8 +405,8 @@
         </div>
     </div>
 
-    <!-- Slide 5: Case 1 The Attack -->
-    <div class="slide" id="slide-5">
+    <!-- Slide 6: Case 1 The Attack -->
+    <div class="slide" id="slide-6">
         <h2>事件還原：北韓駭客的供應鏈攻擊</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
@@ -389,8 +426,8 @@
         </div>
     </div>
 
-    <!-- Slide 6: Case 1 Blind Signing -->
-    <div class="slide" id="slide-6">
+    <!-- Slide 7: Case 1 Blind Signing -->
+    <div class="slide" id="slide-7">
         <h2>致命瞬間：盲簽 (Blind Signing)</h2>
         <p>Ben 的例行公事：交易所調度水位，將 30,000 ETH 從冷錢包轉至熱錢包。</p>
         
@@ -426,8 +463,8 @@
         </div>
     </div>
 
-    <!-- Slide 7: Why it happened -->
-    <div class="slide" id="slide-7">
+    <!-- Slide 8: Why it happened -->
+    <div class="slide" id="slide-8">
         <h2>問題核心：為何黃金流程擋不住駭客？</h2>
         <p>Ben 其實流程都符合規範，只是少了最關鍵的一步：核對冷錢包螢幕。</p>
         
@@ -469,8 +506,8 @@
         </div>
     </div>
 
-    <!-- Slide 8: Supply Chain Attack (NEW) -->
-    <div class="slide" id="slide-8">
+    <!-- Slide 9: Supply Chain Attack -->
+    <div class="slide" id="slide-9">
         <h2>源頭防範：供應鏈攻擊 (Supply Chain Attack)</h2>
         <p>除了盲簽，Bybit 的另一個致命傷是信任了被入侵的 Safe{Wallet} 前端網頁。</p>
         
@@ -496,7 +533,7 @@
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-solid fa-code" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
                     <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">3. 修改網頁程式碼</h4>
-                    <p style="font-size: 16px; margin: 0;">植入針對性代碼：只有當 Bybit 的錢包連接時，才會觸發攻擊，其他用戶使用則一切正常。</p>
+                    <p style="font-size: 16px; margin: 0;">植入針對性代碼：只有當 Bybit 的錢包連接時，才會觸發攻擊，其他用戶使用則一切正常 (用來規避偵測)。</p>
                 </div>
 
             </div>
@@ -510,43 +547,51 @@
         </div>
     </div>
 
-    <!-- Slide 9: Case 1 Analysis (Refactored - New Style) -->
-    <div class="slide" id="slide-9">
+    <!-- Slide 10: Case 1 Analysis (Vertical List - Fixed Break) -->
+    <div class="slide" id="slide-10">
         <h2>監理啟示：四層交織的系統性崩潰</h2>
         <p>這不只是中心化交易所掉錢，而是四個環節同時失靈的結果：</p>
         
-        <div class="diagram-box" style="padding: 30px; border: none; background: transparent;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
-                    <strong style="color: var(--brand-blue); font-size: 22px;">1. 人員層 (Social Engineering)</strong>
-                    <p style="margin-top: 10px; color: var(--brand-white);">Safe 工程師被鎖定，遭針對性社交攻擊入侵工作站。</p>
-                </div>
-                
-                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
-                    <strong style="color: var(--brand-blue); font-size: 22px;">2. 供應鏈層 (Supply Chain)</strong>
-                    <p style="margin-top: 10px; color: var(--brand-white);">Safe 前端網頁被劫持，官方介面變成駭客工具。</p>
-                </div>
-                
-                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
-                    <strong style="color: var(--brand-blue); font-size: 22px;">3. 技術層 (Hardware limitations)</strong>
-                    <p style="margin-top: 10px; color: var(--brand-white);">冷錢包硬體更新跟不上軟體發展，導致「顯示亂碼」成為常態。</p>
-                </div>
-                
-                <div class="flow-card" style="border-left: 5px solid var(--brand-blue); border-top: none; border-right: none; border-bottom: none; text-align: left; padding: 20px;">
-                    <strong style="color: var(--brand-blue); font-size: 22px;">4. 操作層 (OpSec Failure)</strong>
-                    <p style="margin-top: 10px; color: var(--brand-white);">Bybit 執行長因習慣亂碼而「盲簽」，最後一道防線失效。</p>
-                </div>
+        <div class="diagram-box" style="padding: 30px; border: none; background: transparent; display: flex; flex-direction: column; gap: 15px;">
+            
+            <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">1. 人員層 (Social Engineering)</strong>
+                <span style="color: var(--text-secondary); font-size: 20px;">Safe 工程師被鎖定，遭針對性社交攻擊入侵工作站。</span>
+            </div>
+
+            <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">2. 供應鏈層 (Supply Chain)</strong>
+                <span style="color: var(--text-secondary); font-size: 20px;">Safe 前端網頁被劫持，官方介面變成駭客工具。</span>
+            </div>
+
+            <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">3. 技術層 (Hardware limitations)</strong>
+                <span style="color: var(--text-secondary); font-size: 20px;">冷錢包硬體更新跟不上軟體發展，導致「顯示亂碼」成為常態。</span>
+            </div>
+
+            <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">4. 操作層 (OpSec Failure)</strong>
+                <span style="color: var(--text-secondary); font-size: 20px;">Bybit 執行長因習慣亂碼而「盲簽」，最後一道防線失效。</span>
             </div>
             
-            <div style="background: rgba(42, 104, 160, 0.3); padding: 20px; border-radius: 8px; text-align: center; margin-top: 30px; border: 1px solid var(--brand-dark-blue);">
-                <strong style="color: var(--brand-white); font-size: 24px;">結論：理想的風控必須涵蓋整條供應鏈</strong>
-                <p style="margin: 10px 0 0 0; font-size: 18px; color: var(--text-secondary);">只監管 VASP 本身是不夠的，因為風險可能來自其信任的第三方。</p>
+            <div style="background: rgba(42, 104, 160, 0.3); padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px; border: 1px solid var(--brand-dark-blue);">
+                <strong style="color: var(--brand-white); font-size: 22px;">結論：理想的風控必須涵蓋整條供應鏈</strong>
+                <p style="margin: 5px 0 0 0; font-size: 18px; color: var(--text-secondary);">只監管 VASP 本身是不夠的，因為風險可能來自其信任的第三方。</p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 10: Case 2 Intro -->
-    <div class="slide" id="slide-10">
+    <!-- Slide 11: Transition 2 (NEW) -->
+    <div class="slide" id="slide-11">
+        <div style="text-align: center; border: 4px solid var(--brand-blue); padding: 60px; border-radius: 20px;">
+            <i class="fa-solid fa-chart-line" style="font-size: 100px; color: var(--brand-blue); margin-bottom: 40px;"></i>
+            <h2 style="font-size: 64px; border: none; padding: 0; margin-bottom: 20px;">第二部分：系統風險</h2>
+            <p style="font-size: 32px; color: var(--text-secondary);">190 億美元的清算潮</p>
+        </div>
+    </div>
+
+    <!-- Slide 12: Case 2 Intro -->
+    <div class="slide" id="slide-12">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
         <p>這場 190 億美元的清算潮，源自於全球最大交易所與成長最快穩定幣的強強聯手。</p>
         
@@ -586,8 +631,8 @@
         </div>
     </div>
 
-    <!-- Slide 11: Case 2 The Trap -->
-    <div class="slide" id="slide-11">
+    <!-- Slide 13: Case 2 The Trap -->
+    <div class="slide" id="slide-13">
         <h2>系統性誘因：統一帳戶與無限槓桿</h2>
         <p>幣安設計了一套機制，鼓勵用戶將 USDe 當作保證金，再借錢買更多 USDe。</p>
         
@@ -615,8 +660,65 @@
         </p>
     </div>
 
-    <!-- Slide 12: Case 2 The Crash -->
-    <div class="slide" id="slide-12">
+    <!-- Slide 14: Case 2 The Math (NEW) -->
+    <div class="slide" id="slide-14">
+        <h2>循環貸數學：如何憑空變出 20% 年化？</h2>
+        <p>在 12% 補貼與 5% 借款成本的利差下，槓桿成為了收益放大器。</p>
+        
+        <table class="math-table">
+            <thead>
+                <tr>
+                    <th>步驟</th>
+                    <th>本金 (USDe)</th>
+                    <th>利息收益 (12%)</th>
+                    <th>借款債務 (USDT)</th>
+                    <th>借款成本 (5%)</th>
+                    <th>淨收益</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>初始投入</td>
+                    <td>$10,000</td>
+                    <td>+$1,200</td>
+                    <td>$0</td>
+                    <td>$0</td>
+                    <td>$1,200 (12%)</td>
+                </tr>
+                <tr>
+                    <td>第一層循環 (LTV 80%)</td>
+                    <td>+$8,000</td>
+                    <td>+$960</td>
+                    <td>-$8,000</td>
+                    <td>-$400</td>
+                    <td>+$560</td>
+                </tr>
+                <tr>
+                    <td>第二層循環 (LTV 80%)</td>
+                    <td>+$6,400</td>
+                    <td>+$768</td>
+                    <td>-$6,400</td>
+                    <td>-$320</td>
+                    <td>+$448</td>
+                </tr>
+                <tr style="border-top: 2px solid var(--brand-blue);">
+                    <td><strong>總計 (Total)</strong></td>
+                    <td><strong>$24,400</strong></td>
+                    <td><strong>$2,928</strong></td>
+                    <td><strong>-$14,400</strong></td>
+                    <td><strong>-$720</strong></td>
+                    <td><strong style="color: var(--risk-color); font-size: 24px;">$2,208 (22%)</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 20px; text-align: center; font-size: 18px; color: var(--risk-color);">
+            <i class="fa-solid fa-triangle-exclamation"></i> <strong>代價：</strong> 只要 USDe 稍微脫鉤，高達 2.4 倍的槓桿就會觸發連鎖清算。
+        </div>
+    </div>
+
+    <!-- Slide 15: Case 2 The Crash -->
+    <div class="slide" id="slide-15">
         <h2>完美風暴：宏觀黑天鵝與孤島效應</h2>
         <p>2025 年 10 月，川普關稅推文引發幣圈大跌。幣安內部的系統缺陷被瞬間引爆。</p>
         
@@ -640,8 +742,8 @@
         </div>
     </div>
 
-    <!-- Slide 13: Case 2 Regulatory Insights -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 16: Case 2 Regulatory Insights -->
+    <div class="slide" id="slide-16">
         <h2>監理啟示：中心化基礎設施的脆弱性</h2>
         <ul style="list-style: none; padding: 0; font-size: 22px;">
             <li style="margin-bottom: 25px;">
@@ -671,15 +773,15 @@
         </div>
     </div>
 
-    <!-- Slide 14: Case 3 Intro -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 17: Case 3 Intro -->
+    <div class="slide" id="slide-17">
         <h2>3. DeFi 投入風險：我的百萬學費</h2>
         <p>這是我親身經歷的教訓。證明了即使是老手，在 <strong>DeFi 可組合性 (Composability)</strong> 面前也可能像小白一樣無助。</p>
         <p><strong>起點：</strong> 我將 USDC 存入老牌聚合器 Harvest Finance，想穩賺 10% 利息。</p>
     </div>
 
-    <!-- Slide 15: Case 3 The Path -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 18: Case 3 The Path -->
+    <div class="slide" id="slide-18">
         <h2>毒性傳染路徑圖</h2>
         <div class="diagram-box">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -712,8 +814,8 @@
         </div>
     </div>
 
-    <!-- Slide 16: Case 3 Checklist -->
-    <div class="slide" id="slide-16">
+    <!-- Slide 19: Case 3 Checklist -->
+    <div class="slide" id="slide-19">
         <h2>實務風險觀察：DeFi 投資</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -729,8 +831,8 @@
         </ul>
     </div>
 
-    <!-- Slide 17: Conclusion -->
-    <div class="slide" id="slide-17">
+    <!-- Slide 20: Conclusion -->
+    <div class="slide" id="slide-20">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
@@ -744,7 +846,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 17</div>
+    <div class="page-number" id="page-num">1 / 20</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
