@@ -384,7 +384,7 @@
             </div>
             <div style="text-align: center;">
                 <img src="https://duk.tw/D5hSQW.png" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--brand-dark-blue);" alt="Safe Wallet Compromised UI">
-                <p style="margin-top: 20px; color: var(--text-secondary);">受駭的 Safe{Wallet} 前端介面 (示意圖)</p>
+                <p style="margin-top: 20px; color: var(--text-secondary);">受駭的 Safe{Wallet} 前端介面</p>
             </div>
         </div>
     </div>
@@ -392,7 +392,7 @@
     <!-- Slide 6: Case 1 Blind Signing -->
     <div class="slide" id="slide-6">
         <h2>致命瞬間：盲簽 (Blind Signing)</h2>
-        <p>Ben 的例行公事：將 30,000 ETH 從冷錢包轉至熱錢包。</p>
+        <p>Ben 的例行公事：交易所調度水位，將 30,000 ETH 從冷錢包轉至熱錢包。</p>
         
         <div class="diagram-box">
             <div style="display: flex; gap: 40px; align-items: center; justify-content: center;">
@@ -426,9 +426,9 @@
         </div>
     </div>
 
-    <!-- Slide 7: Why it happened (New) -->
+    <!-- Slide 7: Why it happened -->
     <div class="slide" id="slide-7">
-        <h2>問題核心：為何合規流程擋不住駭客？</h2>
+        <h2>問題核心：為何黃金流程擋不住駭客？</h2>
         <p>Ben 其實都沒做錯，流程都符合規範，只是少了最關鍵的一步：核對冷錢包螢幕。</p>
         
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -469,8 +469,49 @@
         </div>
     </div>
 
-    <!-- Slide 8: Case 1 Checklist -->
+    <!-- Slide 8: Supply Chain Attack (NEW) -->
     <div class="slide" id="slide-8">
+        <h2>源頭揭密：供應鏈攻擊 (Supply Chain Attack)</h2>
+        <p>除了盲簽，Bybit 的另一個致命傷是信任了被入侵的第三方服務商：Safe{Wallet}。</p>
+        
+        <div class="diagram-box">
+            <div style="display: flex; gap: 20px; justify-content: space-between;">
+                
+                <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
+                    <i class="fa-solid fa-user-injured" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
+                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">1. 社交工程</h4>
+                    <p style="font-size: 16px; margin: 0;">駭客偽裝成獵頭或合作夥伴，透過社交軟體誘騙 Safe 工程師下載惡意軟體。</p>
+                </div>
+
+                <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
+
+                <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
+                    <i class="fa-brands fa-aws" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
+                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">2. 竊取權限</h4>
+                    <p style="font-size: 16px; margin: 0;">駭客從工程師電腦竊取 AWS Session Token，繞過 MFA 登入 Safe 後台。</p>
+                </div>
+
+                <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
+
+                <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
+                    <i class="fa-solid fa-code" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
+                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">3. 植入惡意代碼</h4>
+                    <p style="font-size: 16px; margin: 0;">修改前端 JavaScript，設定為「只對 Bybit 的錢包地址」發動攻擊。</p>
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; border-top: 1px dashed var(--brand-blue); padding-top: 20px;">
+                <p style="font-size: 24px; color: var(--brand-white);">
+                    <i class="fa-solid fa-shield-cat" style="color: var(--brand-blue); margin-right: 10px;"></i>
+                    這證明了資安不只是自己的事，還包含你的供應商 (Vendor Risk Management)。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Case 1 Checklist -->
+    <div class="slide" id="slide-9">
         <h2>實務風險觀察：保管</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -491,8 +532,8 @@
         </ul>
     </div>
 
-    <!-- Slide 9: Case 2 Intro -->
-    <div class="slide" id="slide-9">
+    <!-- Slide 10: Case 2 Intro -->
+    <div class="slide" id="slide-10">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
         <p>2025 年 10 月，川普關稅引爆市場，但讓 USDe 跌到 0.65 的元兇是交易所的<strong>產品設計</strong>。</p>
         
@@ -509,8 +550,8 @@
         </div>
     </div>
 
-    <!-- Slide 10: Case 2 The Mechanism -->
-    <div class="slide" id="slide-10">
+    <!-- Slide 11: Case 2 The Mechanism -->
+    <div class="slide" id="slide-11">
         <h2>甜蜜陷阱：12% 補貼與循環槓桿</h2>
         <p>幣安為了搶市占，推出了「不設上限」的 12% 獎勵活動。</p>
         
@@ -536,8 +577,8 @@
         </p>
     </div>
 
-    <!-- Slide 11: Case 2 The Crash -->
-    <div class="slide" id="slide-11">
+    <!-- Slide 12: Case 2 The Crash -->
+    <div class="slide" id="slide-12">
         <h2>死亡螺旋與孤島效應</h2>
         <div class="diagram-box">
             <div class="flow-row">
@@ -562,8 +603,8 @@
         </div>
     </div>
 
-    <!-- Slide 12: Case 2 Checklist -->
-    <div class="slide" id="slide-12">
+    <!-- Slide 13: Case 2 Checklist -->
+    <div class="slide" id="slide-13">
         <h2>實務風險觀察：產品設計</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -579,15 +620,15 @@
         </ul>
     </div>
 
-    <!-- Slide 13: Case 3 Intro -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 14: Case 3 Intro -->
+    <div class="slide" id="slide-14">
         <h2>3. DeFi 投入風險：我的百萬學費</h2>
         <p>這是我親身經歷的教訓。證明了即使是老手，在 <strong>DeFi 可組合性 (Composability)</strong> 面前也可能像小白一樣無助。</p>
         <p><strong>起點：</strong> 我將 USDC 存入老牌聚合器 Harvest Finance，想穩賺 10% 利息。</p>
     </div>
 
-    <!-- Slide 14: Case 3 The Path -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 15: Case 3 The Path -->
+    <div class="slide" id="slide-15">
         <h2>毒性傳染路徑圖</h2>
         <div class="diagram-box">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -620,8 +661,8 @@
         </div>
     </div>
 
-    <!-- Slide 15: Case 3 Checklist -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 16: Case 3 Checklist -->
+    <div class="slide" id="slide-16">
         <h2>實務風險觀察：DeFi 投資</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -637,8 +678,8 @@
         </ul>
     </div>
 
-    <!-- Slide 16: Conclusion -->
-    <div class="slide" id="slide-16">
+    <!-- Slide 17: Conclusion -->
+    <div class="slide" id="slide-17">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
@@ -652,7 +693,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 16</div>
+    <div class="page-number" id="page-num">1 / 17</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
