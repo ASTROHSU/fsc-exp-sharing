@@ -379,7 +379,7 @@
                 <!-- Warning Box in Orange -->
                 <div style="background: rgba(224, 124, 56, 0.1); border-left: 4px solid var(--risk-color); padding: 20px; margin-top: 30px;">
                     <strong style="color: var(--risk-color);">移花接木 (Bait and Switch)</strong>
-                    <p style="font-size: 20px; margin: 10px 0;">電腦螢幕顯示的是「官方網站」和「正確轉帳」，但實際上執行的動作已經被替換成其他授權操作</p>
+                    <p style="font-size: 20px; margin: 10px 0;">電腦螢幕顯示的是「官方網站」和「正確轉帳」，但實際上執行的動作已經被替換成其他授權操作。</p>
                 </div>
             </div>
             <div style="text-align: center;">
@@ -429,35 +429,35 @@
     <!-- Slide 7: Why it happened -->
     <div class="slide" id="slide-7">
         <h2>問題核心：為何黃金流程擋不住駭客？</h2>
-        <p>Ben 其實都沒做錯，流程都符合規範，只是少了最關鍵的一步：核對冷錢包螢幕。</p>
+        <p>Ben 其實流程都符合規範，只是少了最關鍵的一步：核對冷錢包螢幕。</p>
         
-        <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <div>
+        <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div style="display: flex; flex-direction: column; justify-content: center;">
                 <h3 style="color: var(--risk-color); border-bottom: 2px solid var(--risk-color); padding-bottom: 10px; margin-bottom: 20px;">
                     <i class="fa-solid fa-bug"></i> 結構性漏洞
                 </h3>
                 <ul style="list-style: none; padding: 0;">
                     <li style="margin-bottom: 20px;">
                         <strong style="color: var(--brand-white); font-size: 22px;">1. 硬體更新落後</strong>
-                        <p style="margin-top: 5px;">區塊鏈協議發展太快，冷錢包韌體常跟不上最新的合約互動，導致無法解析內容，只能顯示 16 進位亂碼 (Raw Data)。</p>
+                        <p style="margin-top: 5px; font-size: 20px;">區塊鏈協議發展太快，冷錢包韌體常跟不上最新的合約互動，導致無法解析內容，只能顯示 16 進位亂碼 (Raw Data)。</p>
                     </li>
                     <li style="margin-bottom: 20px;">
                         <strong style="color: var(--brand-white); font-size: 22px;">2. 亂碼常態化</strong>
-                        <p style="margin-top: 5px;">因為「總是顯示亂碼」，使用者逐漸習慣「忽略冷錢包螢幕」，轉而完全信任電腦螢幕顯示的資訊。</p>
+                        <p style="margin-top: 5px; font-size: 20px;">因為「總是顯示亂碼」，使用者逐漸習慣「忽略冷錢包螢幕」，轉而完全信任電腦螢幕顯示的資訊。</p>
                     </li>
                 </ul>
             </div>
             
-            <div style="border-left: 1px dashed var(--brand-dark-blue); padding-left: 40px;">
+            <div style="border-left: 1px dashed var(--brand-dark-blue); padding-left: 30px; display: flex; flex-direction: column; justify-content: center;">
                 <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); padding-bottom: 10px; margin-bottom: 20px;">
                     <i class="fa-solid fa-shield-check"></i> 解決方案：清晰簽名
                 </h3>
                 <div style="background: rgba(72, 170, 224, 0.1); padding: 20px; border-radius: 8px; border: 1px solid var(--brand-blue);">
                     <strong style="color: var(--brand-blue); font-size: 24px;">Clear Signing (清晰簽名)</strong>
-                    <p style="margin-top: 15px; color: var(--brand-white);">
+                    <p style="margin-top: 15px; color: var(--brand-white); font-size: 20px;">
                         強制要求硬體錢包必須能解析並顯示人類可讀的交易內容 (Trusted Display)。
                     </p>
-                    <p style="margin-top: 10px;">
+                    <p style="margin-top: 10px; font-size: 20px;">
                         <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 10px;"></i>
                         如果冷錢包顯示的是亂碼，<span style="color: var(--risk-color); font-weight: bold;">絕對不簽</span>。
                     </p>
@@ -471,8 +471,8 @@
 
     <!-- Slide 8: Supply Chain Attack (NEW) -->
     <div class="slide" id="slide-8">
-        <h2>源頭揭密：供應鏈攻擊 (Supply Chain Attack)</h2>
-        <p>除了盲簽，Bybit 的另一個致命傷是信任了被入侵的第三方服務商：Safe{Wallet}。</p>
+        <h2>源頭防範：供應鏈攻擊 (Supply Chain Attack)</h2>
+        <p>除了盲簽，Bybit 的另一個致命傷是信任了被入侵的 Safe{Wallet} 前端網頁。</p>
         
         <div class="diagram-box">
             <div style="display: flex; gap: 20px; justify-content: space-between;">
@@ -487,16 +487,16 @@
 
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-brands fa-aws" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
-                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">2. 竊取權限</h4>
-                    <p style="font-size: 16px; margin: 0;">駭客從工程師電腦竊取 AWS Session Token，繞過 MFA 登入 Safe 後台。</p>
+                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">2. 竊取雲端權限</h4>
+                    <p style="font-size: 16px; margin: 0;">駭客從受害電腦中偷走 AWS 登入憑證 (Session Token)，繞過雙重驗證 (MFA)，直接取得 Safe 網站的後台控制權。</p>
                 </div>
 
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
 
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-solid fa-code" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
-                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">3. 植入惡意代碼</h4>
-                    <p style="font-size: 16px; margin: 0;">修改前端 JavaScript，設定為「只對 Bybit 的錢包地址」發動攻擊。</p>
+                    <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">3. 植入針對性代碼</h4>
+                    <p style="font-size: 16px; margin: 0;">修改網頁程式碼 (JavaScript)，設定為「只有當 Bybit 錢包連接時」才觸發攻擊，其他用戶使用則一切正常 (用來規避偵測)。</p>
                 </div>
 
             </div>
@@ -504,32 +504,42 @@
             <div style="text-align: center; margin-top: 30px; border-top: 1px dashed var(--brand-blue); padding-top: 20px;">
                 <p style="font-size: 24px; color: var(--brand-white);">
                     <i class="fa-solid fa-shield-cat" style="color: var(--brand-blue); margin-right: 10px;"></i>
-                    這證明了資安不只是自己的事，還包含你的供應商 (Vendor Risk Management)。
+                    資安不只是自己的事，還包含背後的供應商。
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 9: Case 1 Checklist -->
+    <!-- Slide 9: Case 1 Analysis (Refactored) -->
     <div class="slide" id="slide-9">
-        <h2>實務風險觀察：保管</h2>
-        <ul style="list-style: none;">
-            <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>所見即所簽 (WYSIWYS)：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">冷錢包上的小螢幕才是唯一的真相。如果看到 Raw Data (亂碼)，絕對不能簽。</p>
-            </li>
-            <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>物理隔離環境：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">私鑰管理人的簽署電腦應與日常辦公電腦分開 (Air-gapped)，避免社交工程木馬。</p>
-            </li>
-            <li style="margin-bottom: 30px;">
-                <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
-                <strong>異常中止 SOP：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">當顯示資訊不一致時，是一線人員自己判斷，還是有強制中止機制？</p>
-            </li>
-        </ul>
+        <h2>監理啟示：四層交織的系統性崩潰</h2>
+        <p>這不只是中心化交易所掉錢，而是四個環節同時失靈的結果：</p>
+        
+        <div class="diagram-box" style="padding: 30px;">
+            <ul style="list-style: none; padding: 0; font-size: 20px;">
+                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
+                    <strong style="color: var(--brand-white);">1. 人員層 (Social Engineering)</strong><br>
+                    <span style="color: var(--text-secondary);">Safe 工程師被鎖定，遭針對性社交攻擊入侵工作站。</span>
+                </li>
+                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
+                    <strong style="color: var(--brand-white);">2. 供應鏈層 (Supply Chain)</strong><br>
+                    <span style="color: var(--text-secondary);">Safe 前端網頁被劫持，官方介面變成駭客工具。</span>
+                </li>
+                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
+                    <strong style="color: var(--brand-white);">3. 技術層 (Hardware limitations)</strong><br>
+                    <span style="color: var(--text-secondary);">冷錢包硬體更新跟不上軟體發展，導致「顯示亂碼」成為常態。</span>
+                </li>
+                <li style="margin-bottom: 20px; border-left: 4px solid var(--risk-color); padding-left: 20px;">
+                    <strong style="color: var(--brand-white);">4. 操作層 (OpSec Failure)</strong><br>
+                    <span style="color: var(--text-secondary);">Bybit 執行長因習慣亂碼而「盲簽」，最後一道防線失效。</span>
+                </li>
+            </ul>
+            
+            <div style="background: rgba(72, 170, 224, 0.1); padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px;">
+                <strong style="color: var(--brand-blue); font-size: 22px;">結論：理想的風控必須涵蓋整條供應鏈</strong>
+                <p style="margin: 5px 0 0 0; font-size: 18px;">只監管 VASP 本身是不夠的，因為風險可能來自其信任的第三方。</p>
+            </div>
+        </div>
     </div>
 
     <!-- Slide 10: Case 2 Intro -->
