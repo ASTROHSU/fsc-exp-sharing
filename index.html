@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>虛擬資產保管商、借貸商及DeFi業務等之發展、監理及風險管理注意事項</title>
-    <!-- Favicon: Using a shield emoji as a data URI for self-containment -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,20 +13,12 @@
     <style>
         :root {
             /* Blocktrend Brand Palette */
-            
-            /* Primary */
-            --brand-blue: #48AAE0;       /* RGB 72, 170, 224 */
-            
-            /* Secondary */
-            --brand-dark-blue: #2A68A0;  /* RGB 42, 104, 160 */
-            --brand-gray-blue: #475366;  /* RGB 71, 83, 102 */
-            
-            /* Accent (Risk/Warning) */
-            --brand-orange: #E07C38;     /* RGB 224, 124, 56 */
-            
-            /* Neutral */
-            --brand-dark-gray: #343434;  /* RGB 52, 52, 52 */
-            --brand-white: #FFFFFF;      /* RGB 255, 255, 255 */
+            --brand-blue: #48AAE0;       
+            --brand-dark-blue: #2A68A0;  
+            --brand-gray-blue: #475366;  
+            --brand-orange: #E07C38;     
+            --brand-dark-gray: #343434;  
+            --brand-white: #FFFFFF;      
 
             /* Functional Mapping */
             --bg-color: var(--brand-dark-gray);
@@ -76,7 +68,6 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.5s ease, visibility 0.5s ease;
-            /* Subtle Grid using Brand Colors */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -123,10 +114,6 @@
 
         strong { color: var(--brand-white); font-weight: 700; }
         
-        /* Utility Classes for Colors */
-        .highlight-red { color: var(--risk-color); font-weight: 700; } /* Maps to Orange */
-        .highlight-blue { color: var(--brand-blue); font-weight: 700; }
-
         /* Components */
         .diagram-box {
             background: rgba(0, 0, 0, 0.2);
@@ -155,7 +142,7 @@
         
         .arrow-right { font-size: 30px; color: var(--brand-blue); opacity: 0.8; }
 
-        /* Navigation Controls */
+        /* Controls */
         .controls {
             position: fixed;
             bottom: 30px;
@@ -192,11 +179,29 @@
             font-size: 18px;
         }
 
-        /* Specific Styles for Diagrams */
+        /* Custom Classes for specific slides */
+        .zoom-img {
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+            object-fit: contain;
+            /* Fix for layout breaking */
+            max-height: 35vh; 
+            width: 100%;
+        }
+        
+        .zoom-img:active, .zoom-img:hover {
+            transform: scale(1.5);
+            z-index: 100;
+            position: relative;
+            background: #000;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
         .ledger-screen {
             background: #000;
             border: 4px solid var(--brand-dark-gray);
-            color: var(--brand-blue); /* Replaced Green with Blue */
+            color: var(--brand-blue); 
             padding: 20px;
             font-family: 'Courier New', monospace;
             border-radius: 8px;
@@ -213,7 +218,6 @@
             box-shadow: var(--shadow);
         }
 
-        /* Tables for Math Slide */
         .math-table {
             width: 100%;
             border-collapse: collapse;
@@ -241,43 +245,18 @@
             background-color: rgba(72, 170, 224, 0.2);
         }
 
-        /* Responsive Design */
         @media (max-width: 1024px) {
             .slide {
                 padding: 40px 30px;
                 justify-content: flex-start;
                 overflow-y: auto;
-                height: 100%;
-                -webkit-overflow-scrolling: touch;
             }
-
-            h1[style] { font-size: 42px !important; margin-bottom: 30px !important; }
-            h2 { font-size: 32px; padding-left: 20px; margin-bottom: 30px; border-width: 5px; }
-            h3 { font-size: 24px; }
-            p, li { font-size: 18px; margin-bottom: 15px; }
-            .flow-card { padding: 20px; }
-            
-            #slide-1 > div[style*="font-size: 48px"] { font-size: 28px !important; margin-bottom: 30px !important; }
-            #slide-1 > div[style*="font-size: 32px"] { font-size: 20px !important; }
-
-            .flow-row { flex-direction: column; gap: 15px; }
-            div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 30px !important; }
-            #slide-2 > div[style*="display: flex"] { flex-direction: column; height: auto !important; }
-            #slide-5 > .diagram-box > div[style*="display: flex"],
-            #slide-7 .diagram-box > div[style*="display: flex"] { flex-direction: column; }
-
-            .arrow-right { transform: rotate(90deg); margin: 5px 0; }
-            .fa-not-equal { transform: rotate(90deg); margin: 15px 0; }
-            .diagram-box { padding: 20px; margin-top: 10px; }
-
-            .controls { bottom: 20px; right: 20px; gap: 10px; }
-            .btn { padding: 10px 20px; font-size: 16px; opacity: 0.8; }
-            .page-number { bottom: 20px; left: 20px; font-size: 14px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px; }
-            
-            i[style*="font-size: 150px"] { font-size: 100px !important; }
-            i[style*="font-size: 60px"] { font-size: 40px !important; margin-bottom: 15px !important; }
+            h1 { font-size: 42px !important; }
+            h2 { font-size: 32px !important; }
+            .zoom-img { max-height: 250px; }
+            .flow-row { flex-direction: column; }
+            div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
         }
-
     </style>
 </head>
 <body>
@@ -330,11 +309,10 @@
         </div>
     </div>
 
-    <!-- Slide 4: Case 1 Intro (Comparison Table) -->
+    <!-- Slide 4: Case 1 Intro -->
     <div class="slide" id="slide-4">
         <h2>1. 保管風險：Bybit 遭北韓駭走 15 億美元</h2>
         <p>業界公認的資產保管黃金標準是「冷錢包 + 多重簽名」。</p>
-        
         <div class="diagram-box" style="display: flex; flex-direction: column; gap: 20px; flex: 1; min-height: 0; justify-content: center;">
             <div class="flow-row" style="align-items: stretch; gap: 20px;">
                 <div class="flow-card" style="border-color: var(--brand-blue); text-align: left; flex: 1; padding: 25px;">
@@ -347,9 +325,7 @@
                         <li><strong>防範惡意軟體：</strong><br>即使電腦中毒，私鑰仍鎖在硬體裝置內。</li>
                     </ul>
                 </div>
-
                 <div style="font-size: 40px; color: var(--text-secondary); align-self: center; font-weight: bold;">+</div>
-
                 <div class="flow-card" style="border-color: var(--brand-blue); text-align: left; flex: 1; padding: 25px;">
                     <div style="text-align: center; margin-bottom: 15px;">
                         <i class="fa-solid fa-users-gear" style="font-size: 40px; color: var(--brand-blue);"></i>
@@ -368,7 +344,6 @@
     <div class="slide" id="slide-5">
         <h2>標準安全流程：分層負責，互不信任</h2>
         <p>在 Bybit 案例中，使用的交易簽署流程如下圖：</p>
-
         <div class="diagram-box" style="margin-top: 40px;">
             <div class="flow-row" style="gap: 20px;">
                 <div class="flow-card" style="padding: 30px; opacity: 0.8;">
@@ -376,10 +351,7 @@
                     <div style="font-size: 18px; margin-top: 15px;">財務人員建立交易單</div>
                     <i class="fa-solid fa-desktop" style="font-size: 40px; margin-top: 20px; color: var(--text-secondary);"></i>
                 </div>
-                
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                
-                <!-- Highlighted Safe Zone -->
                 <div class="flow-card" style="padding: 30px; border: 3px solid var(--brand-blue); background: rgba(72, 170, 224, 0.15); transform: scale(1.05);">
                     <strong style="color: var(--brand-blue); font-size: 24px;">2. 離線多簽 (安全防線)</strong>
                     <div style="font-size: 18px; margin-top: 15px; color: var(--brand-white); font-weight: bold;">主管分別以各自冷錢包簽名</div>
@@ -392,9 +364,7 @@
                     </div>
                     <div style="margin-top: 15px; font-size: 16px; color: var(--text-secondary);">物理隔離環境 + 核對螢幕</div>
                 </div>
-                
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-                
                 <div class="flow-card" style="padding: 30px; opacity: 0.8;">
                     <strong style="color: var(--brand-white); font-size: 24px;">3. 廣播上鏈</strong>
                     <div style="font-size: 18px; margin-top: 15px;">系統湊齊簽名後送出</div>
@@ -412,7 +382,6 @@
                 <p><strong>時間：</strong> 2025 年 2 月 21 日</p>
                 <p><strong>受害者：</strong> Bybit 執行長 Ben Zhou</p>
                 <p><strong>手法：</strong> 駭客駭入多簽服務商 <strong>Safe{Wallet} 的 AWS</strong>，竄改了前端程式碼。</p>
-                <!-- Warning Box in Orange -->
                 <div style="background: rgba(224, 124, 56, 0.1); border-left: 4px solid var(--risk-color); padding: 20px; margin-top: 30px;">
                     <strong style="color: var(--risk-color);">移花接木 (Bait and Switch)</strong>
                     <p style="font-size: 20px; margin: 10px 0;">電腦螢幕顯示的是「官方網站」和「正確轉帳」，但實際上執行的動作已經被替換成其他授權操作。</p>
@@ -429,7 +398,6 @@
     <div class="slide" id="slide-7">
         <h2>致命瞬間：盲簽 (Blind Signing)</h2>
         <p>Ben 的例行公事：交易所調度水位，將 30,000 ETH 從冷錢包轉至熱錢包。</p>
-        
         <div class="diagram-box">
             <div style="display: flex; gap: 40px; align-items: center; justify-content: center;">
                 <div style="flex: 1;">
@@ -438,19 +406,15 @@
                         <strong>Safe{Wallet} UI</strong><br><br>
                         Action: Transfer<br>
                         To: Bybit Hot Wallet<br>
-                        <!-- Success color replaced with Blue -->
                         <span style="color: var(--brand-blue); font-weight: bold;">[Verify & Sign]</span>
                     </div>
                 </div>
-
                 <i class="fa-solid fa-not-equal" style="font-size: 40px; color: var(--risk-color);"></i>
-
                 <div style="flex: 1;">
                     <div style="text-align: center; color: var(--text-secondary); margin-bottom: 10px;">冷錢包螢幕 (真實指令)</div>
                     <div class="ledger-screen">
                         Function: upgradeToAndCall<br>
                         Data: 0x82a... (Malicious)<br>
-                        <!-- Ledger text border in Blue -->
                         <span style="border: 1px solid var(--brand-blue); padding: 2px 5px; margin-top: 10px; display: inline-block; color: var(--brand-blue);">Approve?</span>
                     </div>
                 </div>
@@ -466,7 +430,6 @@
     <div class="slide" id="slide-8">
         <h2>問題核心：為何黃金流程擋不住駭客？</h2>
         <p>Ben 其實流程都符合規範，只是少了最關鍵的一步：核對冷錢包螢幕。</p>
-        
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
             <div style="display: flex; flex-direction: column; justify-content: center;">
                 <h3 style="color: var(--risk-color); border-bottom: 2px solid var(--brand-dark-blue); padding-bottom: 10px; margin-bottom: 20px;">
@@ -483,7 +446,6 @@
                     </li>
                 </ul>
             </div>
-            
             <div style="border-left: 1px dashed var(--brand-dark-blue); padding-left: 30px; display: flex; flex-direction: column; justify-content: center;">
                 <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-dark-blue); padding-bottom: 10px; margin-bottom: 20px;">
                     <i class="fa-solid fa-shield-check"></i> 解決方案：清晰簽名
@@ -509,34 +471,26 @@
     <div class="slide" id="slide-9">
         <h2>源頭防範：供應鏈攻擊 (Supply Chain Attack)</h2>
         <p>除了盲簽，Bybit 的另一個致命傷是信任了被入侵的 Safe{Wallet} 前端網頁。</p>
-        
         <div class="diagram-box">
             <div style="display: flex; gap: 20px; justify-content: space-between;">
-                
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-solid fa-user-injured" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
                     <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">1. 社交工程</h4>
                     <p style="font-size: 16px; margin: 0;">駭客偽裝成獵頭或合作夥伴，透過社交軟體誘騙 Safe 工程師下載惡意軟體。</p>
                 </div>
-
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-brands fa-aws" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
                     <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">2. 竊取雲端權限</h4>
                     <p style="font-size: 16px; margin: 0;">從工程師電腦偷走雲端通行證 (AWS Session Token)，繞過雙重驗證 (MFA)，登入 Safe 後台。</p>
                 </div>
-
                 <div class="arrow-right"><i class="fa-solid fa-arrow-right"></i></div>
-
                 <div class="flow-card" style="border-color: var(--risk-color); background: rgba(224, 124, 56, 0.05); padding: 20px;">
                     <i class="fa-solid fa-code" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
                     <h4 style="color: var(--brand-white); margin: 0 0 10px 0;">3. 修改網頁程式碼</h4>
                     <p style="font-size: 16px; margin: 0;">植入針對性代碼：只有當 Bybit 的錢包連接時，才會觸發攻擊，其他用戶使用則一切正常 (用來規避偵測)。</p>
                 </div>
-
             </div>
-            
             <div style="text-align: center; margin-top: 30px; border-top: 1px dashed var(--brand-blue); padding-top: 20px;">
                 <p style="font-size: 24px; color: var(--brand-white);">
                     <i class="fa-solid fa-shield-cat" style="color: var(--brand-blue); margin-right: 10px;"></i>
@@ -546,33 +500,27 @@
         </div>
     </div>
 
-    <!-- Slide 10: Case 1 Analysis (Vertical List) -->
+    <!-- Slide 10: Case 1 Analysis -->
     <div class="slide" id="slide-10">
         <h2>監理啟示：四層交織的系統性崩潰</h2>
         <p>這不只是中心化交易所掉錢，而是四個環節同時失靈的結果：</p>
-        
         <div class="diagram-box" style="padding: 30px; border: none; background: transparent; display: flex; flex-direction: column; gap: 15px;">
-            
             <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
                 <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">1. 人員層 (Social Engineering)</strong>
                 <span style="color: var(--text-secondary); font-size: 20px;">Safe 工程師被鎖定，遭針對性社交攻擊入侵工作站。</span>
             </div>
-
             <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
                 <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">2. 供應鏈層 (Supply Chain)</strong>
                 <span style="color: var(--text-secondary); font-size: 20px;">Safe 前端網頁被劫持，官方介面變成駭客工具。</span>
             </div>
-
             <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
                 <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">3. 技術層 (Hardware limitations)</strong>
                 <span style="color: var(--text-secondary); font-size: 20px;">冷錢包硬體更新跟不上軟體發展，導致「顯示亂碼」成為常態。</span>
             </div>
-
             <div style="display: flex; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
                 <strong style="color: var(--brand-blue); font-size: 22px; width: 350px;">4. 操作層 (OpSec Failure)</strong>
                 <span style="color: var(--text-secondary); font-size: 20px;">Bybit 執行長因習慣亂碼而「盲簽」，最後一道防線失效。</span>
             </div>
-            
             <div style="background: rgba(42, 104, 160, 0.3); padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px; border: 1px solid var(--brand-dark-blue);">
                 <strong style="color: var(--brand-white); font-size: 22px;">結論：理想的風控必須涵蓋整條供應鏈</strong>
                 <p style="margin: 5px 0 0 0; font-size: 18px; color: var(--text-secondary);">只監管 VASP 本身是不夠的，因為風險可能來自其信任的第三方。</p>
@@ -593,7 +541,6 @@
     <div class="slide" id="slide-12">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
         <p>這場 190 億美元的清算潮，源自於全球最大交易所與成長最快穩定幣的強強聯手。</p>
-        
         <div class="diagram-box">
             <div style="display: flex; gap: 40px;">
                 <div style="flex: 1;">
@@ -606,9 +553,7 @@
                         <li><strong>目標：</strong> 增加平台資金沉澱</li>
                     </ul>
                 </div>
-                
                 <div style="width: 2px; background: var(--brand-gray-blue);"></div>
-                
                 <div style="flex: 1;">
                     <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); padding-bottom: 10px;">
                         <i class="fa-solid fa-flask"></i> USDe
@@ -620,7 +565,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div style="margin-top: 30px; background: var(--card-bg); padding: 20px; border-radius: 8px; text-align: center;">
                 <strong style="color: var(--brand-white); font-size: 22px;">合作關係：各取所需</strong>
                 <p style="margin: 10px 0 0 0;">
@@ -633,7 +577,6 @@
     <!-- Slide 13: Marketing & Growth -->
     <div class="slide" id="slide-13">
         <h2>瘋狂的行銷：無上限的 12% 補貼</h2>
-        
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
             <div>
                 <img src="https://duk.tw/SyRDzM.webp" style="width: 100%; border-radius: 12px; border: 1px solid var(--brand-dark-blue); box-shadow: var(--shadow);" alt="Binance 12% Promo">
@@ -646,7 +589,6 @@
                     </p>
                 </div>
             </div>
-            
             <div>
                 <img src="https://duk.tw/EC2Fac.webp" style="width: 100%; border-radius: 12px; border: 1px solid var(--brand-dark-blue); box-shadow: var(--shadow);" alt="Dune Analytics USDe Growth">
                 <div style="margin-top: 20px;">
@@ -663,7 +605,6 @@
     <div class="slide" id="slide-14">
         <h2>USDe 的收益來源：資金費率 (Funding Rate)</h2>
         <p>永續合約沒有到期日，靠「資金費率」來錨定現貨價格。</p>
-        
         <div class="diagram-box">
             <div style="display: flex; gap: 40px; justify-content: center; align-items: center; margin-bottom: 30px;">
                 <div style="text-align: center; width: 40%;">
@@ -674,9 +615,7 @@
                         <span style="color: var(--brand-blue); font-weight: bold;">Ethena 收息</span>
                     </div>
                 </div>
-                
                 <div style="width: 2px; height: 150px; background: var(--border-color);"></div>
-
                 <div style="text-align: center; width: 40%;">
                     <i class="fa-solid fa-arrow-trend-down" style="font-size: 60px; color: var(--risk-color);"></i>
                     <h3 style="margin: 15px 0;">熊市 (空 > 多)</h3>
@@ -686,7 +625,6 @@
                     </div>
                 </div>
             </div>
-            
             <div style="background: var(--card-bg); padding: 20px; border-radius: 12px; border: 2px solid var(--brand-gray-blue);">
                 <strong style="color: var(--brand-white); font-size: 22px;">Ethena 的 Delta Neutral 策略</strong>
                 <p style="margin-top: 10px; font-size: 18px;">
@@ -701,20 +639,17 @@
     <div class="slide" id="slide-15">
         <h2>系統性誘因：統一帳戶與無限槓桿</h2>
         <p>幣安設計了一套機制，鼓勵用戶將 USDe 當作保證金，再借錢買更多 USDe。</p>
-        
         <div class="flow-row" style="margin-top: 30px; align-items: stretch;">
             <div class="flow-card" style="flex: 1;">
                 <i class="fa-solid fa-sack-dollar" style="font-size: 40px; color: var(--brand-blue); margin-bottom: 15px;"></i>
                 <strong style="display: block; font-size: 22px; margin-bottom: 10px;">1. 統一帳戶</strong>
                 <p style="font-size: 16px;">給予 USDe 極高的抵押權重 (>90%)，視同現金。</p>
             </div>
-            
             <div class="flow-card" style="flex: 1;">
                 <i class="fa-solid fa-percent" style="font-size: 40px; color: var(--brand-blue); margin-bottom: 15px;"></i>
                 <strong style="display: block; font-size: 22px; margin-bottom: 10px;">2. 12% 補貼</strong>
                 <p style="font-size: 16px;">年化 12% 獎勵，且<span style="color: var(--brand-blue); font-weight: bold;">不設存款上限</span>。</p>
             </div>
-            
             <div class="flow-card" style="flex: 1; border-color: var(--risk-color);">
                 <i class="fa-solid fa-rotate" style="font-size: 40px; color: var(--risk-color); margin-bottom: 15px;"></i>
                 <strong style="display: block; font-size: 22px; margin-bottom: 10px; color: var(--risk-color);">3. 循環貸 (Looping)</strong>
@@ -730,7 +665,6 @@
     <div class="slide" id="slide-16">
         <h2>循環貸：如何憑空變出 20% 年化？</h2>
         <p>在 12% 補貼與 5% 借款成本的利差下，槓桿成為了收益放大器。</p>
-        
         <table class="math-table">
             <thead>
                 <tr>
@@ -777,7 +711,6 @@
                 </tr>
             </tbody>
         </table>
-        
         <div style="margin-top: 30px; font-size: 18px; color: var(--text-secondary); text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
             <strong>清算價格試算：</strong><br>
             假設清算門檻 (LTV) 為 90%<br>
@@ -791,7 +724,6 @@
     <div class="slide" id="slide-17">
         <h2>導火線：宏觀恐慌與流動性撤退</h2>
         <p>2025 年 10 月，一個外部消息點燃了內部的火藥庫。</p>
-        
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
             <div style="border-right: 1px dashed var(--brand-dark-blue); padding-right: 40px;">
                 <h3 style="color: var(--risk-color); margin-bottom: 20px;">
@@ -808,7 +740,6 @@
                     </li>
                 </ul>
             </div>
-            
             <div>
                 <h3 style="color: var(--risk-color); margin-bottom: 20px;">
                     <i class="fa-solid fa-chart-line-down"></i> 微觀崩潰 (Micro)
@@ -831,7 +762,6 @@
     <div class="slide" id="slide-18">
         <h2>連鎖反應：從火藥庫到核爆</h2>
         <p>火藥庫 (高槓桿) + 點火 (川普) + 封閉空間 (系統卡死) = 完美風暴</p>
-        
         <div class="diagram-box" style="margin-top: 30px;">
             <div class="flow-row">
                 <div class="flow-card" style="padding: 15px; border-color: var(--risk-color);">
@@ -854,13 +784,10 @@
                     <div style="font-size: 16px;">深度不足跌至 0.80</div>
                 </div>
             </div>
-            
-            <!-- Loop Arrow back to 2 -->
             <div style="text-align: center; margin: 10px 0;">
                 <i class="fa-solid fa-rotate-left" style="color: var(--risk-color); font-size: 30px;"></i>
                 <span style="color: var(--risk-color); font-weight: bold; margin-left: 10px;">死亡螺旋 (重複 2-4)</span>
             </div>
-
             <div style="background: #000; border: 2px solid var(--brand-white); padding: 20px; border-radius: 12px; text-align: center; margin-top: 10px;">
                 <h3 style="color: var(--brand-white); margin: 0;">關鍵放大器：交易所孤島</h3>
                 <p style="font-size: 18px; color: #ccc; margin-top: 10px;">
@@ -871,10 +798,9 @@
         </div>
     </div>
 
-    <!-- Slide 19 (New): The Truth - Exchange Implosion -->
+    <!-- Slide 19: The Truth - Exchange Implosion -->
     <div class="slide" id="slide-19">
         <h2>不是 USDe 脫鉤，是交易所內爆</h2>
-        
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
                 <ul style="list-style: none; padding: 0; font-size: 20px;">
@@ -896,7 +822,6 @@
                     </li>
                 </ul>
             </div>
-            
             <div style="text-align: center;">
                 <img src="https://duk.tw/Sm6Qb0.jpg" style="width: 100%; max-height: 450px; object-fit: contain; border-radius: 12px; border: 2px solid var(--risk-color); box-shadow: var(--shadow);" alt="ATOM Crash on Binance">
                 <div style="margin-top: 15px; background: rgba(224, 124, 56, 0.1); padding: 15px; border-radius: 8px;">
@@ -911,11 +836,10 @@
         </div>
     </div>
 
-    <!-- Slide 20: New Aftermath & Response -->
+    <!-- Slide 20: Aftermath & Response -->
     <div class="slide" id="slide-20">
         <h2>災後重建：賠償與監管回應</h2>
         <p>這起事件不僅重創了投資人信心，也成為全球監管機構介入 CEX 黑盒子的關鍵案例。</p>
-        
         <div class="diagram-box">
             <div class="flow-row" style="gap: 20px;">
                 <div class="flow-card" style="padding: 25px; flex: 1;">
@@ -928,7 +852,6 @@
                         <li>將強平價格從 0.65 修正回 1.00</li>
                     </ul>
                 </div>
-                
                 <div class="flow-card" style="padding: 25px; flex: 1;">
                     <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); padding-bottom: 10px; margin-bottom: 15px;">
                         <i class="fa-solid fa-flask"></i> USDe 回應
@@ -944,7 +867,6 @@
                         </li>
                     </ul>
                 </div>
-                
                 <div class="flow-card" style="padding: 25px; flex: 1; border-color: var(--risk-color);">
                     <h3 style="color: var(--risk-color); border-bottom: 2px solid var(--risk-color); padding-bottom: 10px; margin-bottom: 15px;">
                         <i class="fa-solid fa-gavel"></i> 監管動作
@@ -958,7 +880,7 @@
         </div>
     </div>
 
-    <!-- NEW SLIDE INSERTED HERE -->
+    <!-- Slide 21: Regulatory Insights -->
     <div class="slide" id="slide-21">
         <h2>監理啟示：中心化基礎設施的脆弱性</h2>
         <ul style="list-style: none; padding: 0; font-size: 22px;">
@@ -984,11 +906,9 @@
                 </p>
             </li>
         </ul>
-        <div style="text-align: center; margin-top: 20px; font-size: 18px; color: var(--text-secondary);">
-        </div>
     </div>
 
-    <!-- Slide 22: Transition 3 (New) -->
+    <!-- Slide 22: Transition 3 -->
     <div class="slide" id="slide-22">
         <div style="text-align: center; border: 4px solid var(--risk-color); padding: 60px; border-radius: 20px;">
             <i class="fa-solid fa-biohazard" style="font-size: 100px; color: var(--risk-color); margin-bottom: 40px;"></i>
@@ -997,10 +917,9 @@
         </div>
     </div>
 
-    <!-- Slide 23: Case 3 Intro (Personal Story) -->
+    <!-- Slide 23: Case 3 Intro -->
     <div class="slide" id="slide-23">
         <h2>3. DeFi 傳導風險：我的百萬學費</h2>
-        
         <div class="diagram-box">
             <div style="display: flex; gap: 40px; align-items: center;">
                 <div style="flex: 1;">
@@ -1012,7 +931,6 @@
                         <li><strong>心態：</strong> 「只放經過市場考驗、平台推薦的資金池，確保錢隨時可動。」</li>
                     </ul>
                 </div>
-                
                 <div style="flex: 1; text-align: center;">
                     <img src="https://duk.tw/XCXt3h.png" style="width: 100%; border-radius: 12px; border: 1px solid var(--brand-dark-blue); box-shadow: var(--shadow);" alt="Harvest Finance Interface">
                 </div>
@@ -1020,7 +938,7 @@
         </div>
     </div>
 
-    <!-- Slide 24: Case 3 The Trap (Updated with Narrative) -->
+    <!-- Slide 24: Case 3 The Trap (Fixed Layout) -->
     <div class="slide" id="slide-24">
         <h2>3. 驚醒：從「吃瓜」到「受災」</h2>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
@@ -1032,64 +950,59 @@
                         <i class="fa-solid fa-comment-slash" style="color: var(--text-secondary); margin-right: 5px;"></i>
                         <em>心想：「幸好我把錢放在 Harvest 和 OKX，跟這個小協議沒關係。」</em>
                     </p>
-                    <img src="https://duk.tw/6oeftd.jpg" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin-top: 10px;" alt="News Feed">
+                    <img src="https://duk.tw/6oeftd.jpg" class="zoom-img" alt="News Feed">
                 </div>
             </div>
             <div>
                 <div style="background: rgba(224, 124, 56, 0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--risk-color);">
                     <strong style="color: var(--risk-color); font-size: 20px;">Day 2: 逃生失敗</strong>
                     <p style="font-size: 18px; margin: 10px 0; color: var(--text-secondary);">
-                        覺得氣氛不對想提款避風頭，才發現 Harvest 的資金池早就被掏空了。
+                        覺得氣氛不對想提款避風頭，才發現資金池早就被掏空了。
                     </p>
-                    <img src="https://duk.tw/cg2eAc.jpg" style="width: 100%; border-radius: 8px; border: 1px solid var(--risk-color); margin-top: 10px;" alt="Liquidity Crisis">
+                    <img src="https://duk.tw/cg2eAc.jpg" class="zoom-img" style="border: 1px solid var(--risk-color);" alt="Liquidity Crisis">
                 </div>
-                <p style="margin-top: 20px; font-weight: bold; color: var(--brand-white);">
-                    這時我才意識到：<br>原來我的錢，早就透過層層包裝，借給了 Stream Finance。
+                <p style="margin-top: 10px; font-weight: bold; color: var(--brand-white); font-size: 18px;">
+                    這時我才意識到：原來我的錢，早就透過層層包裝，借給了 Stream Finance。
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 25: Case 3 Mechanism (New Slide) -->
+    <!-- Slide 25: Case 3 Mechanism (Fixed Layout) -->
     <div class="slide" id="slide-25">
         <h2>結構解析：Stream Finance 的糖衣毒藥</h2>
         <p>為什麼這麼多協議願意接受 xUSD？因為它承諾了極高的「無風險」收益。</p>
-        
         <div class="diagram-box" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
-            <div>
-                <img src="https://duk.tw/MZ9534.png" style="width: 100%; border-radius: 12px; border: 1px solid var(--brand-blue); box-shadow: var(--shadow); background: #fff;" alt="Stream Finance Architecture">
+            <div style="text-align: center;">
+                <img src="https://duk.tw/MZ9534.png" class="zoom-img" style="border: 1px solid var(--brand-blue); background: #fff;" alt="Stream Finance Architecture">
             </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="flow-card" style="text-align: left; padding: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="flow-card" style="text-align: left; padding: 15px;">
                     <strong style="color: var(--brand-blue); font-size: 20px;">1. 資產管理 (Asset Mgmt)</strong>
                     <p style="font-size: 16px; margin-top: 5px;">
-                        用戶存入 USDC，協議將資金交給「人類交易員」在鏈下交易所 (如 Binance) 進行套利交易。
+                        用戶存入 USDC，協議將資金交給「人類交易員」在鏈下交易所進行套利交易。
                     </p>
                 </div>
-                
-                <div class="flow-card" style="text-align: left; padding: 20px;">
+                <div class="flow-card" style="text-align: left; padding: 15px;">
                     <strong style="color: var(--brand-blue); font-size: 20px;">2. 憑證代幣 (xUSD)</strong>
                     <p style="font-size: 16px; margin-top: 5px;">
                         發行 xUSD 作為存款憑證。理論上 1 xUSD = 1 USDC + 累積收益。
                     </p>
                 </div>
-                
-                <div class="flow-card" style="text-align: left; padding: 20px; border-color: var(--risk-color);">
+                <div class="flow-card" style="text-align: left; padding: 15px; border-color: var(--risk-color);">
                     <strong style="color: var(--risk-color); font-size: 20px;">3. 致命吸引力</strong>
                     <p style="font-size: 16px; margin-top: 5px;">
-                        因為帳面收益穩定，其他借貸協議 (Euler/Silo) 搶著將 xUSD 列為抵押品，讓用戶可以「循環借貸」放大收益。
+                        借貸協議 (Euler/Silo) 搶著將 xUSD 列為抵押品，讓用戶可以「循環借貸」放大收益。
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 26: Case 3 Origin (Black Box) (Shifted Down) -->
+    <!-- Slide 26: Case 3 Origin -->
     <div class="slide" id="slide-26">
         <h2>危機起源：黑箱與謊言 (Stream Finance)</h2>
         <p>這起事件的核心不是代碼漏洞，而是傳統金融最常見的「挪用公款」與「欺詐」。</p>
-        
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
             <div>
                 <strong style="color: var(--brand-white); font-size: 24px;">9,300 萬美元去哪了？</strong>
@@ -1099,7 +1012,6 @@
                     <li style="margin-bottom: 15px;"><strong>真相：</strong> 經理個人交易虧損，挪用協議資產 (用戶資金) 補保證金。</li>
                 </ul>
             </div>
-            
             <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border-left: 4px solid var(--risk-color);">
                 <strong style="color: var(--risk-color); font-size: 22px;">荒謬的理由</strong>
                 <p style="margin-top: 10px; font-size: 18px; color: var(--text-secondary);">
@@ -1113,35 +1025,29 @@
         </div>
     </div>
 
-    <!-- Slide 27: Case 3 Contagion (Jenga) (Shifted Down) -->
+    <!-- Slide 27: Case 3 Contagion -->
     <div class="slide" id="slide-27">
-        <h2>連鎖反應：DeFi 疊疊樂 (Jenga)</h2>
+        <h2>連鎖反應：DeFi 疊疊樂</h2>
         <p>單點壞帳如何演變成 2.85 億美元的系統性債務？關鍵在於「風險策展人」的失職。</p>
-        
         <div class="diagram-box">
             <div class="flow-row" style="align-items: flex-start;">
                 <div class="flow-card" style="border-color: var(--risk-color);">
                     <strong style="font-size: 20px; color: var(--risk-color);">1. 毒資產源頭</strong>
                     <div style="font-size: 16px; margin-top: 10px;">Stream Finance (xUSD)<br>內含 9300 萬壞帳</div>
                 </div>
-                
                 <div class="arrow-right" style="margin-top: 30px;"><i class="fa-solid fa-arrow-right"></i></div>
-                
                 <div class="flow-card">
                     <strong style="font-size: 20px; color: var(--brand-white);">2. 滲透借貸協議</strong>
                     <div style="font-size: 16px; margin-top: 10px;">Euler / Morpho / Silo</div>
                     <div style="margin-top: 5px; font-size: 14px; color: var(--text-secondary);">接受 xUSD 作為抵押品</div>
                 </div>
-                
                 <div class="arrow-right" style="margin-top: 30px;"><i class="fa-solid fa-arrow-right"></i></div>
-                
                 <div class="flow-card" style="border-color: var(--brand-blue);">
                     <strong style="font-size: 20px; color: var(--brand-blue);">3. 風險策展人 (失職)</strong>
                     <div style="font-size: 16px; margin-top: 10px;">TelosC / MEV Capital</div>
                     <div style="margin-top: 5px; font-size: 14px; color: var(--text-secondary);">為了高收益，將用戶的 USDC/ETH 借給 xUSD 持有者</div>
                 </div>
             </div>
-            
             <div style="text-align: center; margin-top: 30px; border-top: 1px dashed var(--risk-color); padding-top: 20px;">
                 <p style="font-size: 22px; color: var(--risk-color); font-weight: bold;">
                     結果：當 xUSD 歸零，借出去的 USDC/ETH 全部變成壞帳 (Bad Debt)。<br>
@@ -1151,11 +1057,10 @@
         </div>
     </div>
 
-    <!-- Slide 28: Case 3 Scale (Shifted Down) -->
+    <!-- Slide 28: Case 3 Scale -->
     <div class="slide" id="slide-28">
         <h2>規模與代價：受害者全景圖</h2>
         <p>這場危機波及了至少七個區塊鏈網絡，總計影響金額超過 2.85 億美元。</p>
-        
         <table class="math-table" style="font-size: 18px;">
             <thead>
                 <tr>
@@ -1199,9 +1104,66 @@
             </tbody>
         </table>
     </div>
-
-    <!-- Slide 29: Case 3 Regulatory Insights (Shifted Down) -->
+    
+    <!-- New Slide 29: Key Lesson - Collateral -->
     <div class="slide" id="slide-29">
+        <h2>借貸真理：APY 決定收益，抵押品決定本金</h2>
+        <p>DeFi 樂高積木般的「可組合性」是雙面刃：一層包一層，風險層層傳導。</p>
+        
+        <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--risk-color); padding-bottom: 10px;">
+                    <span style="font-size: 20px; color: var(--risk-color);">最底層 (震央)</span>
+                    <strong style="font-size: 20px;">Stream Finance 壞帳</strong>
+                </div>
+                <div style="text-align: center; color: var(--brand-blue);"><i class="fa-solid fa-arrow-up"></i> 傳染</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed var(--text-secondary); padding-bottom: 10px;">
+                    <span style="font-size: 20px; color: var(--text-secondary);">抵押層</span>
+                    <span style="font-size: 20px;">Silo 接受 xUSD 作為抵押品</span>
+                </div>
+                <div style="text-align: center; color: var(--brand-blue);"><i class="fa-solid fa-arrow-up"></i> 傳染</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed var(--text-secondary); padding-bottom: 10px;">
+                    <span style="font-size: 20px; color: var(--text-secondary);">資金層</span>
+                    <span style="font-size: 20px;">Harvest 存入 USDC 到 Silo</span>
+                </div>
+                <div style="text-align: center; color: var(--brand-blue);"><i class="fa-solid fa-arrow-up"></i> 受災</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(72, 170, 224, 0.2); padding: 10px; border-radius: 8px;">
+                    <span style="font-size: 20px; color: var(--brand-white); font-weight: bold;">最上層 (我)</span>
+                    <strong style="font-size: 20px;">流動性枯竭，無法提款</strong>
+                </div>
+            </div>
+            
+            <div style="border-left: 2px solid var(--brand-dark-blue); padding-left: 40px;">
+                <h3 style="color: var(--brand-blue); margin-bottom: 20px;">
+                    <i class="fa-solid fa-lightbulb"></i> 三大反思
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 25px;">
+                        <strong style="color: var(--brand-white); font-size: 20px;">1. 距離不代表安全</strong>
+                        <p style="margin-top: 5px; font-size: 18px; color: var(--text-secondary);">
+                            我不是 Stream 的用戶，甚至沒聽過它。但金融系統是一體的，只要中間層 (Silo) 沒有做好風險隔離 (Risk Isolation)，壞帳就會擴散到天涯海角。
+                        </p>
+                    </li>
+                    <li style="margin-bottom: 25px;">
+                        <strong style="color: var(--risk-color); font-size: 20px;">2. 抵押品是借貸的核心</strong>
+                        <p style="margin-top: 5px; font-size: 18px; color: var(--text-secondary);">
+                            以前只看 APY 高低，現在要看<strong>「借走我錢的人，抵押了什麼？」</strong>。<br>
+                            如果抵押品 (xUSD) 變壁紙，借款人絕對不會還錢。
+                        </p>
+                    </li>
+                    <li>
+                        <strong style="color: var(--brand-white); font-size: 20px;">3. 平台管理者的責任</strong>
+                        <p style="margin-top: 5px; font-size: 18px; color: var(--text-secondary);">
+                            Silo/Euler 等平台讓子市場管理者自行決定抵押品，雖然靈活，但也讓不知情的終端用戶容易踩雷。
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 30: Case 3 Regulatory Insights -->
+    <div class="slide" id="slide-30">
         <h2>監理啟示：鏈下資產管理的監管邊界</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -1222,14 +1184,12 @@
         </ul>
     </div>
 
-    <!-- Slide 30: Conclusion (Shifted Down) -->
-    <div class="slide" id="slide-30">
+    <!-- Slide 31: Conclusion -->
+    <div class="slide" id="slide-31">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
-            
             <div style="margin-top: 80px; font-size: 40px; color: var(--brand-blue);">Q & A</div>
-            
             <div style="margin-top: 100px; color: var(--text-secondary); font-size: 20px;">
                 區塊勢｜許明恩
             </div>
@@ -1237,7 +1197,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 30</div>
+    <div class="page-number" id="page-num">1 / 31</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
@@ -1259,8 +1219,6 @@
             }
         });
         pageNumDisplay.innerText = `${currentSlide + 1} / ${totalSlides}`;
-        
-        // Scroll to top of slide when changing (for mobile where overflow is auto)
         window.scrollTo(0, 0);
         slides[currentSlide].scrollTop = 0;
     }
@@ -1279,7 +1237,6 @@
         }
     }
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === ' ' || e.code === 'Space') {
             nextSlide();
