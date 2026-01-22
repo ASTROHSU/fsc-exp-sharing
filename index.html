@@ -1020,26 +1020,73 @@
         </div>
     </div>
 
-    <!-- Slide 24: Case 3 The Trap (New) -->
+    <!-- Slide 24: Case 3 The Trap (Updated with Narrative) -->
     <div class="slide" id="slide-24">
-        <h2>結果：無法提領</h2>
-        <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        <h2>3. 驚醒：從「吃瓜」到「受災」</h2>
+        <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
             <div>
-                <p style="font-size: 24px; color: var(--text-secondary); margin-bottom: 20px;">
-                    當我看到 Stream Finance 壞帳新聞時，以為跟我無關。
-                </p>
-                <p style="font-size: 24px; color: var(--text-secondary);">
-                    結果去 Harvest、OKX 提款，發現流動性枯竭。
-                </p>
+                <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    <strong style="color: var(--brand-blue); font-size: 20px;">Day 1: 社群吃瓜</strong>
+                    <p style="font-size: 18px; margin: 10px 0; color: var(--text-secondary);">
+                        在 X (Twitter) 上看到 Stream Finance 爆發壞帳的消息。<br>
+                        <i class="fa-solid fa-comment-slash" style="color: var(--text-secondary); margin-right: 5px;"></i>
+                        <em>心想：「幸好我把錢放在 Harvest 和 OKX，跟這個小協議沒關係。」</em>
+                    </p>
+                    <img src="https://duk.tw/6oeftd.jpg" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin-top: 10px;" alt="News Feed">
+                </div>
             </div>
             <div>
-                <img src="https://duk.tw/cg2eAc.jpg" style="width: 100%; border-radius: 12px; border: 2px solid var(--risk-color); box-shadow: var(--shadow);" alt="Liquidity Crisis">
+                <div style="background: rgba(224, 124, 56, 0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--risk-color);">
+                    <strong style="color: var(--risk-color); font-size: 20px;">Day 2: 逃生失敗</strong>
+                    <p style="font-size: 18px; margin: 10px 0; color: var(--text-secondary);">
+                        覺得氣氛不對想提款避風頭，才發現 Harvest 的資金池早就被掏空了。
+                    </p>
+                    <img src="https://duk.tw/cg2eAc.jpg" style="width: 100%; border-radius: 8px; border: 1px solid var(--risk-color); margin-top: 10px;" alt="Liquidity Crisis">
+                </div>
+                <p style="margin-top: 20px; font-weight: bold; color: var(--brand-white);">
+                    這時我才意識到：<br>原來我的錢，早就透過層層包裝，借給了 Stream Finance。
+                </p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 25: Case 3 Origin (Black Box) -->
+    <!-- Slide 25: Case 3 Mechanism (New Slide) -->
     <div class="slide" id="slide-25">
+        <h2>結構解析：Stream Finance 的糖衣毒藥</h2>
+        <p>為什麼這麼多協議願意接受 xUSD？因為它承諾了極高的「無風險」收益。</p>
+        
+        <div class="diagram-box" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
+            <div>
+                <img src="https://duk.tw/MZ9534.png" style="width: 100%; border-radius: 12px; border: 1px solid var(--brand-blue); box-shadow: var(--shadow); background: #fff;" alt="Stream Finance Architecture">
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="flow-card" style="text-align: left; padding: 20px;">
+                    <strong style="color: var(--brand-blue); font-size: 20px;">1. 資產管理 (Asset Mgmt)</strong>
+                    <p style="font-size: 16px; margin-top: 5px;">
+                        用戶存入 USDC，協議將資金交給「人類交易員」在鏈下交易所 (如 Binance) 進行套利交易。
+                    </p>
+                </div>
+                
+                <div class="flow-card" style="text-align: left; padding: 20px;">
+                    <strong style="color: var(--brand-blue); font-size: 20px;">2. 憑證代幣 (xUSD)</strong>
+                    <p style="font-size: 16px; margin-top: 5px;">
+                        發行 xUSD 作為存款憑證。理論上 1 xUSD = 1 USDC + 累積收益。
+                    </p>
+                </div>
+                
+                <div class="flow-card" style="text-align: left; padding: 20px; border-color: var(--risk-color);">
+                    <strong style="color: var(--risk-color); font-size: 20px;">3. 致命吸引力</strong>
+                    <p style="font-size: 16px; margin-top: 5px;">
+                        因為帳面收益穩定，其他借貸協議 (Euler/Silo) 搶著將 xUSD 列為抵押品，讓用戶可以「循環借貸」放大收益。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 26: Case 3 Origin (Black Box) (Shifted Down) -->
+    <div class="slide" id="slide-26">
         <h2>危機起源：黑箱與謊言 (Stream Finance)</h2>
         <p>這起事件的核心不是代碼漏洞，而是傳統金融最常見的「挪用公款」與「欺詐」。</p>
         
@@ -1066,8 +1113,8 @@
         </div>
     </div>
 
-    <!-- Slide 26: Case 3 Contagion (Jenga) -->
-    <div class="slide" id="slide-26">
+    <!-- Slide 27: Case 3 Contagion (Jenga) (Shifted Down) -->
+    <div class="slide" id="slide-27">
         <h2>連鎖反應：DeFi 疊疊樂 (Jenga)</h2>
         <p>單點壞帳如何演變成 2.85 億美元的系統性債務？關鍵在於「風險策展人」的失職。</p>
         
@@ -1104,8 +1151,8 @@
         </div>
     </div>
 
-    <!-- Slide 27: Case 3 Scale -->
-    <div class="slide" id="slide-27">
+    <!-- Slide 28: Case 3 Scale (Shifted Down) -->
+    <div class="slide" id="slide-28">
         <h2>規模與代價：受害者全景圖</h2>
         <p>這場危機波及了至少七個區塊鏈網絡，總計影響金額超過 2.85 億美元。</p>
         
@@ -1153,8 +1200,8 @@
         </table>
     </div>
 
-    <!-- Slide 28: Case 3 Regulatory Insights -->
-    <div class="slide" id="slide-28">
+    <!-- Slide 29: Case 3 Regulatory Insights (Shifted Down) -->
+    <div class="slide" id="slide-29">
         <h2>監理啟示：鏈下資產管理的監管邊界</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -1175,8 +1222,8 @@
         </ul>
     </div>
 
-    <!-- Slide 29: Conclusion -->
-    <div class="slide" id="slide-29">
+    <!-- Slide 30: Conclusion (Shifted Down) -->
+    <div class="slide" id="slide-30">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
@@ -1190,7 +1237,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 29</div>
+    <div class="page-number" id="page-num">1 / 30</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
