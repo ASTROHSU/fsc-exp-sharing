@@ -874,7 +874,7 @@
     <!-- Slide 19 (New): The Truth - Exchange Implosion -->
     <div class="slide" id="slide-19">
         <h2>真相：不是 USDe 脫鉤，是交易所內爆</h2>
-        <p>這是一場由「人禍」堆疊出的流動性黑洞，USDe 協議本身並未崩潰。</p>
+        <p>USDe 協議本身並未崩潰，問題出在流動性黑洞。</p>
         
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
@@ -1109,7 +1109,7 @@
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' || e.key === 'Space') {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.code === 'Space') {
             nextSlide();
         } else if (e.key === 'ArrowLeft') {
             prevSlide();
