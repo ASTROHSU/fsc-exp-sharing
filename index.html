@@ -287,7 +287,7 @@
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
                 <i class="fa-solid fa-biohazard" style="font-size: 60px; color: var(--risk-color); margin-bottom: 30px;"></i>
                 <h3>3. DeFi 組合風險</h3>
-                <p>Stream Finance 造成 DeFi 金融海嘯</p>
+                <p>Stream Finance 引發 DeFi 金融海嘯</p>
                 <p style="color: var(--text-secondary); font-size: 18px;">隱形傳染與可組合性</p>
             </div>
         </div>
@@ -320,7 +320,7 @@
                         <h3 style="color: var(--brand-blue); margin: 10px 0;">多重簽名 (Multi-sig)</h3>
                     </div>
                     <ul style="color: var(--text-secondary); font-size: 18px; padding-left: 20px; margin-bottom: 0;">
-                        <li style="margin-bottom: 15px;"><strong>隔離單點故障：</strong><br>防止單一私鑰遺失導致資產歸零。</li>
+                        <li style="margin-bottom: 15px;"><strong>隔離單點故障：</strong><br>防止單一私鑰遺失導致資產歸零。例如設定 5 取 3 執行</li>
                         <li><strong>防範內部作惡：</strong><br>單一員工無法挪用資產，需多人共識。</li>
                     </ul>
                 </div>
@@ -351,6 +351,8 @@
                         <i class="fa-solid fa-key" style="color: var(--brand-blue); margin: 0 5px; font-size: 30px;"></i>
                         <i class="fa-solid fa-key" style="color: var(--brand-blue); margin: 0 5px; font-size: 30px;"></i>
                         <i class="fa-solid fa-key" style="color: var(--brand-blue); margin: 0 5px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-key" style="color: #6B7280; margin: 0 5px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-key" style="color: #6B7280; margin: 0 5px; font-size: 30px;"></i>
                     </div>
                     <div style="margin-top: 15px; font-size: 16px; color: var(--text-secondary);">物理隔離環境 + 核對螢幕</div>
                 </div>
@@ -368,21 +370,21 @@
 
     <!-- Slide 5: Case 1 The Attack -->
     <div class="slide" id="slide-5">
-        <h2>事件還原：Lazarus Group 的供應鏈攻擊</h2>
+        <h2>事件還原：北韓駭客的供應鏈攻擊</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
                 <p><strong>時間：</strong> 2025 年 2 月 21 日</p>
                 <p><strong>受害者：</strong> Bybit 執行長 Ben Zhou</p>
-                <p><strong>手法：</strong> 駭客並未攻破 Bybit 伺服器，而是駭入多簽服務商 <strong>Safe{Wallet} 的 AWS</strong>，竄改了前端代碼。</p>
+                <p><strong>手法：</strong> 駭客駭入多簽服務商 <strong>Safe{Wallet} 的 AWS</strong>，竄改了前端程式碼。</p>
                 <!-- Warning Box in Orange -->
                 <div style="background: rgba(224, 124, 56, 0.1); border-left: 4px solid var(--risk-color); padding: 20px; margin-top: 30px;">
                     <strong style="color: var(--risk-color);">移花接木 (Bait and Switch)</strong>
-                    <p style="font-size: 20px; margin: 10px 0;">電腦螢幕顯示的是「官方網站」和「正確轉帳」，但這是一個為執行長量身打造的假象。</p>
+                    <p style="font-size: 20px; margin: 10px 0;">電腦螢幕顯示的是「官方網站」和「正確轉帳」，但實際上執行的動作已經被替換成其他授權操作</p>
                 </div>
             </div>
             <div style="text-align: center;">
-                <i class="fa-solid fa-laptop-code" style="font-size: 150px; color: var(--text-secondary); opacity: 0.3;"></i>
-                <p style="margin-top: 20px;">受駭的 Safe{Wallet} 前端介面</p>
+                <img src="https://duk.tw/D5hSQW.png" style="width: 100%; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--brand-dark-blue);" alt="Safe Wallet Compromised UI">
+                <p style="margin-top: 20px; color: var(--text-secondary);">受駭的 Safe{Wallet} 前端介面 (示意圖)</p>
             </div>
         </div>
     </div>
@@ -390,7 +392,7 @@
     <!-- Slide 6: Case 1 Blind Signing -->
     <div class="slide" id="slide-6">
         <h2>致命瞬間：盲簽 (Blind Signing)</h2>
-        <p>Ben 正在執行例行公事：將 30,000 ETH 轉至熱錢包。</p>
+        <p>Ben 的例行公事：將 30,000 ETH 從冷錢包轉至熱錢包。</p>
         
         <div class="diagram-box">
             <div style="display: flex; gap: 40px; align-items: center; justify-content: center;">
@@ -418,14 +420,57 @@
                 </div>
             </div>
             <p style="text-align: center; margin-top: 30px; color: var(--risk-color); font-weight: bold;">
-                結果：他信任電腦，忽略了冷錢包上的亂碼，按下了同意。<br>
-                15 億美元權限移交駭客。
+                結果：他信任電腦螢幕顯示的交易內容，忽略了冷錢包上的亂碼，按下了同意。<br>
+                親手把 15 億美元權限交駭客。
             </p>
         </div>
     </div>
 
-    <!-- Slide 7: Case 1 Checklist -->
+    <!-- Slide 7: Why it happened (New) -->
     <div class="slide" id="slide-7">
+        <h2>問題核心：為何合規流程擋不住駭客？</h2>
+        <p>Ben 其實都沒做錯，流程都符合規範，只是少了最關鍵的一步：核對冷錢包螢幕。</p>
+        
+        <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div>
+                <h3 style="color: var(--risk-color); border-bottom: 2px solid var(--risk-color); padding-bottom: 10px; margin-bottom: 20px;">
+                    <i class="fa-solid fa-bug"></i> 結構性漏洞
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 20px;">
+                        <strong style="color: var(--brand-white); font-size: 22px;">1. 硬體更新落後</strong>
+                        <p style="margin-top: 5px;">區塊鏈協議發展太快，冷錢包韌體常跟不上最新的合約互動，導致無法解析內容，只能顯示 16 進位亂碼 (Raw Data)。</p>
+                    </li>
+                    <li style="margin-bottom: 20px;">
+                        <strong style="color: var(--brand-white); font-size: 22px;">2. 亂碼常態化</strong>
+                        <p style="margin-top: 5px;">因為「總是顯示亂碼」，使用者逐漸習慣「忽略冷錢包螢幕」，轉而完全信任電腦螢幕顯示的資訊。</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="border-left: 1px dashed var(--brand-dark-blue); padding-left: 40px;">
+                <h3 style="color: var(--brand-blue); border-bottom: 2px solid var(--brand-blue); padding-bottom: 10px; margin-bottom: 20px;">
+                    <i class="fa-solid fa-shield-check"></i> 解決方案：清晰簽名
+                </h3>
+                <div style="background: rgba(72, 170, 224, 0.1); padding: 20px; border-radius: 8px; border: 1px solid var(--brand-blue);">
+                    <strong style="color: var(--brand-blue); font-size: 24px;">Clear Signing (清晰簽名)</strong>
+                    <p style="margin-top: 15px; color: var(--brand-white);">
+                        強制要求硬體錢包必須能解析並顯示人類可讀的交易內容 (Trusted Display)。
+                    </p>
+                    <p style="margin-top: 10px;">
+                        <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 10px;"></i>
+                        如果冷錢包顯示的是亂碼，<span style="color: var(--risk-color); font-weight: bold;">絕對不簽</span>。
+                    </p>
+                </div>
+                <p style="margin-top: 20px; font-size: 18px;">
+                    Ledger 與其他廠商已推出相關機制，確保 "What You See Is What You Sign"。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Case 1 Checklist -->
+    <div class="slide" id="slide-8">
         <h2>實務風險觀察：保管</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -446,8 +491,8 @@
         </ul>
     </div>
 
-    <!-- Slide 8: Case 2 Intro -->
-    <div class="slide" id="slide-8">
+    <!-- Slide 9: Case 2 Intro -->
+    <div class="slide" id="slide-9">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
         <p>2025 年 10 月，川普關稅引爆市場，但讓 USDe 跌到 0.65 的元兇是交易所的<strong>產品設計</strong>。</p>
         
@@ -464,8 +509,8 @@
         </div>
     </div>
 
-    <!-- Slide 9: Case 2 The Mechanism -->
-    <div class="slide" id="slide-9">
+    <!-- Slide 10: Case 2 The Mechanism -->
+    <div class="slide" id="slide-10">
         <h2>甜蜜陷阱：12% 補貼與循環槓桿</h2>
         <p>幣安為了搶市占，推出了「不設上限」的 12% 獎勵活動。</p>
         
@@ -491,8 +536,8 @@
         </p>
     </div>
 
-    <!-- Slide 10: Case 2 The Crash -->
-    <div class="slide" id="slide-10">
+    <!-- Slide 11: Case 2 The Crash -->
+    <div class="slide" id="slide-11">
         <h2>死亡螺旋與孤島效應</h2>
         <div class="diagram-box">
             <div class="flow-row">
@@ -517,8 +562,8 @@
         </div>
     </div>
 
-    <!-- Slide 11: Case 2 Checklist -->
-    <div class="slide" id="slide-11">
+    <!-- Slide 12: Case 2 Checklist -->
+    <div class="slide" id="slide-12">
         <h2>實務風險觀察：產品設計</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -534,15 +579,15 @@
         </ul>
     </div>
 
-    <!-- Slide 12: Case 3 Intro -->
-    <div class="slide" id="slide-12">
+    <!-- Slide 13: Case 3 Intro -->
+    <div class="slide" id="slide-13">
         <h2>3. DeFi 投入風險：我的百萬學費</h2>
         <p>這是我親身經歷的教訓。證明了即使是老手，在 <strong>DeFi 可組合性 (Composability)</strong> 面前也可能像小白一樣無助。</p>
         <p><strong>起點：</strong> 我將 USDC 存入老牌聚合器 Harvest Finance，想穩賺 10% 利息。</p>
     </div>
 
-    <!-- Slide 13: Case 3 The Path -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 14: Case 3 The Path -->
+    <div class="slide" id="slide-14">
         <h2>毒性傳染路徑圖</h2>
         <div class="diagram-box">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -575,8 +620,8 @@
         </div>
     </div>
 
-    <!-- Slide 14: Case 3 Checklist -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 15: Case 3 Checklist -->
+    <div class="slide" id="slide-15">
         <h2>實務風險觀察：DeFi 投資</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
@@ -592,8 +637,8 @@
         </ul>
     </div>
 
-    <!-- Slide 15: Conclusion -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 16: Conclusion -->
+    <div class="slide" id="slide-16">
         <div style="text-align: center;">
             <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
             <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
@@ -607,7 +652,7 @@
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 15</div>
+    <div class="page-number" id="page-num">1 / 16</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
