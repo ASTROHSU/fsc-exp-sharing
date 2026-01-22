@@ -184,7 +184,6 @@
             transition: transform 0.3s ease;
             cursor: zoom-in;
             object-fit: contain;
-            /* Fix for layout breaking */
             max-height: 35vh; 
             width: 100%;
         }
@@ -196,6 +195,17 @@
             background: #000;
             border-radius: 8px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .qr-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 12px;
+            border: 4px solid var(--brand-white);
+            box-shadow: 0 0 20px rgba(72, 170, 224, 0.5);
+            background: white;
+            padding: 10px;
+            object-fit: contain;
         }
 
         .ledger-screen {
@@ -256,6 +266,9 @@
             .zoom-img { max-height: 250px; }
             .flow-row { flex-direction: column; }
             div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+            /* Adjust QR layout on mobile */
+            #slide-32 > div > div[style*="display: flex"] { flex-direction: column; gap: 40px; align-items: center; }
+            .qr-img { width: 250px !important; height: 250px !important; }
         }
     </style>
 </head>
@@ -263,8 +276,25 @@
 
 <div class="slides-container">
 
-    <!-- Slide 1: Cover -->
-    <div class="slide active" id="slide-1">
+    <!-- NEW SLIDE 1: Q&A Intro -->
+    <div class="slide active">
+        <div style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h2 style="border: none; padding: 0; font-size: 56px; margin-bottom: 40px; color: var(--brand-white);">
+                <i class="fa-solid fa-comments" style="color: var(--brand-blue); margin-right: 20px;"></i>
+                歡迎提問
+            </h2>
+            <p style="font-size: 28px; margin-bottom: 40px;">請掃描 QR Code 進入匿名問答室</p>
+            <a href="https://app.sli.do/event/f4BXbj9FuYpHY39tWaNJzR" target="_blank">
+                <img src="https://duk.tw/2FJ2y6.png" class="qr-img" alt="Slido QR Code">
+            </a>
+            <a href="https://app.sli.do/event/f4BXbj9FuYpHY39tWaNJzR" target="_blank" style="margin-top: 40px; font-size: 24px; color: var(--brand-blue); font-family: 'Urbanist', sans-serif; text-decoration: none; border-bottom: 1px solid var(--brand-blue); padding-bottom: 5px;">
+                slido.com (點擊進入)
+            </a>
+        </div>
+    </div>
+
+    <!-- Slide 2: Cover -->
+    <div class="slide">
         <div style="font-family: 'Urbanist', sans-serif; letter-spacing: 4px; color: var(--brand-blue); margin-bottom: 20px; font-weight: 700; font-size: 24px;">EXPERIENCE SHARING</div>
         <h1 style="font-size: 80px;">2025 年學費最貴的三堂課：</h1>
         <div style="font-size: 48px; font-weight: 700; color: var(--text-primary); margin-bottom: 60px; line-height: 1.4;">
@@ -275,8 +305,8 @@
         </div>
     </div>
 
-    <!-- Slide 2: Agenda -->
-    <div class="slide" id="slide-2">
+    <!-- Slide 3: Agenda -->
+    <div class="slide">
         <h2>今日分享架構</h2>
         <div style="display: flex; gap: 40px; height: 60%;">
             <div class="flow-card" style="display: flex; flex-direction: column; justify-content: center;">
@@ -300,8 +330,8 @@
         </div>
     </div>
 
-    <!-- Slide 3: Transition 1 -->
-    <div class="slide" id="slide-3">
+    <!-- Slide 4: Transition 1 -->
+    <div class="slide">
         <div style="text-align: center; border: 4px solid var(--brand-blue); padding: 60px; border-radius: 20px;">
             <i class="fa-solid fa-user-shield" style="font-size: 100px; color: var(--brand-blue); margin-bottom: 40px;"></i>
             <h2 style="font-size: 64px; border: none; padding: 0; margin-bottom: 20px;">第一部分：保管風險</h2>
@@ -309,8 +339,8 @@
         </div>
     </div>
 
-    <!-- Slide 4: Case 1 Intro -->
-    <div class="slide" id="slide-4">
+    <!-- Slide 5: Case 1 Intro -->
+    <div class="slide">
         <h2>1. 保管風險：Bybit 遭北韓駭走 15 億美元</h2>
         <p>業界公認的資產保管黃金標準是「冷錢包 + 多重簽名」。</p>
         <div class="diagram-box" style="display: flex; flex-direction: column; gap: 20px; flex: 1; min-height: 0; justify-content: center;">
@@ -340,8 +370,8 @@
         </div>
     </div>
 
-    <!-- Slide 5: Case 1 Process -->
-    <div class="slide" id="slide-5">
+    <!-- Slide 6: Case 1 Process -->
+    <div class="slide">
         <h2>標準安全流程：分層負責，互不信任</h2>
         <p>在 Bybit 案例中，使用的交易簽署流程如下圖：</p>
         <div class="diagram-box" style="margin-top: 40px;">
@@ -374,8 +404,8 @@
         </div>
     </div>
 
-    <!-- Slide 6: Case 1 The Attack -->
-    <div class="slide" id="slide-6">
+    <!-- Slide 7: Case 1 The Attack -->
+    <div class="slide">
         <h2>事件還原：北韓駭客的供應鏈攻擊</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
@@ -394,8 +424,8 @@
         </div>
     </div>
 
-    <!-- Slide 7: Case 1 Blind Signing -->
-    <div class="slide" id="slide-7">
+    <!-- Slide 8: Case 1 Blind Signing -->
+    <div class="slide">
         <h2>致命瞬間：盲簽 (Blind Signing)</h2>
         <p>Ben 的例行公事：交易所調度水位，將 30,000 ETH 從冷錢包轉至熱錢包。</p>
         <div class="diagram-box">
@@ -426,8 +456,8 @@
         </div>
     </div>
 
-    <!-- Slide 8: Why it happened -->
-    <div class="slide" id="slide-8">
+    <!-- Slide 9: Why it happened -->
+    <div class="slide">
         <h2>問題核心：為何黃金流程擋不住駭客？</h2>
         <p>Ben 其實流程都符合規範，只是少了最關鍵的一步：核對冷錢包螢幕。</p>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
@@ -467,8 +497,8 @@
         </div>
     </div>
 
-    <!-- Slide 9: Supply Chain Attack -->
-    <div class="slide" id="slide-9">
+    <!-- Slide 10: Supply Chain Attack -->
+    <div class="slide">
         <h2>源頭防範：供應鏈攻擊 (Supply Chain Attack)</h2>
         <p>除了盲簽，Bybit 的另一個致命傷是信任了被入侵的 Safe{Wallet} 前端網頁。</p>
         <div class="diagram-box">
@@ -500,8 +530,8 @@
         </div>
     </div>
 
-    <!-- Slide 10: Case 1 Analysis -->
-    <div class="slide" id="slide-10">
+    <!-- Slide 11: Case 1 Analysis -->
+    <div class="slide">
         <h2>監理啟示：四層交織的系統性崩潰</h2>
         <p>這不只是中心化交易所掉錢，而是四個環節同時失靈的結果：</p>
         <div class="diagram-box" style="padding: 30px; border: none; background: transparent; display: flex; flex-direction: column; gap: 15px;">
@@ -528,8 +558,8 @@
         </div>
     </div>
 
-    <!-- Slide 11: Transition 2 -->
-    <div class="slide" id="slide-11">
+    <!-- Slide 12: Transition 2 -->
+    <div class="slide">
         <div style="text-align: center; border: 4px solid var(--brand-blue); padding: 60px; border-radius: 20px;">
             <i class="fa-solid fa-chart-line" style="font-size: 100px; color: var(--brand-blue); margin-bottom: 40px;"></i>
             <h2 style="font-size: 64px; border: none; padding: 0; margin-bottom: 20px;">第二部分：系統風險</h2>
@@ -537,8 +567,8 @@
         </div>
     </div>
 
-    <!-- Slide 12: Case 2 Intro -->
-    <div class="slide" id="slide-12">
+    <!-- Slide 13: Case 2 Intro -->
+    <div class="slide">
         <h2>2. 產品設計風險：幣安 USDe 脫鉤事件</h2>
         <p>這場 190 億美元的清算潮，源自於全球最大交易所與成長最快穩定幣的強強聯手。</p>
         <div class="diagram-box">
@@ -574,8 +604,8 @@
         </div>
     </div>
 
-    <!-- Slide 13: Marketing & Growth -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 14: Marketing & Growth -->
+    <div class="slide">
         <h2>瘋狂的行銷：無上限的 12% 補貼</h2>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
             <div>
@@ -601,8 +631,8 @@
         </div>
     </div>
 
-    <!-- Slide 14: USDe Mechanism -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 15: USDe Mechanism -->
+    <div class="slide">
         <h2>USDe 的收益來源：資金費率 (Funding Rate)</h2>
         <p>永續合約沒有到期日，靠「資金費率」來錨定現貨價格。</p>
         <div class="diagram-box">
@@ -635,8 +665,8 @@
         </div>
     </div>
 
-    <!-- Slide 15: Case 2 The Trap -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 16: Case 2 The Trap -->
+    <div class="slide">
         <h2>系統性誘因：統一帳戶與無限槓桿</h2>
         <p>幣安設計了一套機制，鼓勵用戶將 USDe 當作保證金，再借錢買更多 USDe。</p>
         <div class="flow-row" style="margin-top: 30px; align-items: stretch;">
@@ -661,8 +691,8 @@
         </p>
     </div>
 
-    <!-- Slide 16: Case 2 The Math -->
-    <div class="slide" id="slide-16">
+    <!-- Slide 17: Case 2 The Math -->
+    <div class="slide">
         <h2>循環貸：如何憑空變出 20% 年化？</h2>
         <p>在 12% 補貼與 5% 借款成本的利差下，槓桿成為了收益放大器。</p>
         <table class="math-table">
@@ -720,8 +750,8 @@
         </div>
     </div>
 
-    <!-- Slide 17: Case 2 The Crash Analysis -->
-    <div class="slide" id="slide-17">
+    <!-- Slide 18: Case 2 The Crash Analysis -->
+    <div class="slide">
         <h2>導火線：宏觀恐慌與流動性撤退</h2>
         <p>2025 年 10 月，一個外部消息點燃了內部的火藥庫。</p>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
@@ -758,8 +788,8 @@
         </div>
     </div>
 
-    <!-- Slide 18: The Explosion -->
-    <div class="slide" id="slide-18">
+    <!-- Slide 19: The Explosion -->
+    <div class="slide">
         <h2>連鎖反應：從火藥庫到核爆</h2>
         <p>火藥庫 (高槓桿) + 點火 (川普) + 封閉空間 (系統卡死) = 完美風暴</p>
         <div class="diagram-box" style="margin-top: 30px;">
@@ -798,8 +828,8 @@
         </div>
     </div>
 
-    <!-- Slide 19: The Truth - Exchange Implosion -->
-    <div class="slide" id="slide-19">
+    <!-- Slide 20: The Truth - Exchange Implosion -->
+    <div class="slide">
         <h2>不是 USDe 脫鉤，是交易所內爆</h2>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
             <div>
@@ -836,8 +866,8 @@
         </div>
     </div>
 
-    <!-- Slide 20: Aftermath & Response -->
-    <div class="slide" id="slide-20">
+    <!-- Slide 21: Aftermath & Response -->
+    <div class="slide">
         <h2>災後重建：賠償與監管回應</h2>
         <p>這起事件不僅重創了投資人信心，也成為全球監管機構介入 CEX 黑盒子的關鍵案例。</p>
         <div class="diagram-box">
@@ -880,8 +910,8 @@
         </div>
     </div>
 
-    <!-- Slide 21: Regulatory Insights -->
-    <div class="slide" id="slide-21">
+    <!-- Slide 22: Regulatory Insights -->
+    <div class="slide">
         <h2>監理啟示：中心化基礎設施的脆弱性</h2>
         <ul style="list-style: none; padding: 0; font-size: 22px;">
             <li style="margin-bottom: 25px;">
@@ -908,8 +938,8 @@
         </ul>
     </div>
 
-    <!-- Slide 22: Transition 3 -->
-    <div class="slide" id="slide-22">
+    <!-- Slide 23: Transition 3 -->
+    <div class="slide">
         <div style="text-align: center; border: 4px solid var(--risk-color); padding: 60px; border-radius: 20px;">
             <i class="fa-solid fa-biohazard" style="font-size: 100px; color: var(--risk-color); margin-bottom: 40px;"></i>
             <h2 style="font-size: 64px; border: none; padding: 0; margin-bottom: 20px; color: var(--risk-color);">第三部分：DeFi 組合風險</h2>
@@ -917,8 +947,8 @@
         </div>
     </div>
 
-    <!-- Slide 23: Case 3 Intro -->
-    <div class="slide" id="slide-23">
+    <!-- Slide 24: Case 3 Intro -->
+    <div class="slide">
         <h2>3. DeFi 傳導風險：我的百萬學費</h2>
         <div class="diagram-box">
             <div style="display: flex; gap: 40px; align-items: center;">
@@ -938,8 +968,8 @@
         </div>
     </div>
 
-    <!-- Slide 24: Case 3 The Trap (Fixed Layout) -->
-    <div class="slide" id="slide-24">
+    <!-- Slide 25: Case 3 The Trap -->
+    <div class="slide">
         <h2>3. 驚醒：從「吃瓜」到「受災」</h2>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
             <div>
@@ -968,8 +998,8 @@
         </div>
     </div>
 
-    <!-- Slide 25: Case 3 Mechanism (Fixed Layout) -->
-    <div class="slide" id="slide-25">
+    <!-- Slide 26: Case 3 Mechanism -->
+    <div class="slide">
         <h2>結構解析：Stream Finance 的糖衣毒藥</h2>
         <p>為什麼這麼多協議願意接受 xUSD？因為它承諾了極高的「無風險」收益。</p>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
@@ -999,8 +1029,8 @@
         </div>
     </div>
 
-    <!-- Slide 26: Case 3 Origin -->
-    <div class="slide" id="slide-26">
+    <!-- Slide 27: Case 3 Origin -->
+    <div class="slide">
         <h2>危機起源：黑箱與謊言 (Stream Finance)</h2>
         <p>這起事件的核心不是代碼漏洞，而是傳統金融最常見的「挪用公款」與「欺詐」。</p>
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
@@ -1017,7 +1047,7 @@
                 <p style="margin-top: 10px; font-size: 18px; color: var(--text-secondary);">
                     當創辦人追問資金去向時，經理的藉口是：<br>
                     <br>
-                    <em>「我出車禍了，存私鑰的筆記型電腦被撞壞了。」</em>
+                    <em>「我出車禍了，存私鑰的筆電被撞壞了。」</em>
                     <br><br>
                     這個拙劣的謊言拖延了數週，直到資金徹底歸零。
                 </p>
@@ -1025,8 +1055,8 @@
         </div>
     </div>
 
-    <!-- Slide 27: Case 3 Contagion -->
-    <div class="slide" id="slide-27">
+    <!-- Slide 28: Case 3 Contagion -->
+    <div class="slide">
         <h2>連鎖反應：DeFi 疊疊樂</h2>
         <p>單點壞帳如何演變成 2.85 億美元的系統性債務？關鍵在於「風險策展人」的失職。</p>
         <div class="diagram-box">
@@ -1057,8 +1087,8 @@
         </div>
     </div>
 
-    <!-- Slide 28: Case 3 Scale -->
-    <div class="slide" id="slide-28">
+    <!-- Slide 29: Case 3 Scale -->
+    <div class="slide">
         <h2>規模與代價：受害者全景圖</h2>
         <p>這場危機波及了至少七個區塊鏈網絡，總計影響金額超過 2.85 億美元。</p>
         <table class="math-table" style="font-size: 18px;">
@@ -1105,16 +1135,22 @@
         </table>
     </div>
     
-    <!-- New Slide 29: Key Lesson - Collateral -->
-    <div class="slide" id="slide-29">
+    <!-- Slide 30: Key Lesson - Collateral (Reordered) -->
+    <div class="slide">
         <h2>借貸真理：APY 決定收益，抵押品決定本金</h2>
         <p>DeFi 樂高積木般的「可組合性」是雙面刃：一層包一層，風險層層傳導。</p>
         
         <div class="diagram-box" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;">
             <div style="display: flex; flex-direction: column; gap: 15px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--risk-color); padding-bottom: 10px;">
-                    <span style="font-size: 20px; color: var(--risk-color);">最底層 (震央)</span>
-                    <strong style="font-size: 20px;">Stream Finance 壞帳</strong>
+                <!-- VISUAL TOP: USER (VICTIM) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(72, 170, 224, 0.2); padding: 10px; border-radius: 8px;">
+                    <span style="font-size: 20px; color: var(--brand-white); font-weight: bold;">最上層 (我)</span>
+                    <strong style="font-size: 20px;">流動性枯竭，無法提款</strong>
+                </div>
+                <div style="text-align: center; color: var(--brand-blue);"><i class="fa-solid fa-arrow-up"></i> 受災</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed var(--text-secondary); padding-bottom: 10px;">
+                    <span style="font-size: 20px; color: var(--text-secondary);">資金層</span>
+                    <span style="font-size: 20px;">Harvest 存入 USDC 到 Silo</span>
                 </div>
                 <div style="text-align: center; color: var(--brand-blue);"><i class="fa-solid fa-arrow-up"></i> 傳染</div>
                 <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed var(--text-secondary); padding-bottom: 10px;">
@@ -1122,14 +1158,10 @@
                     <span style="font-size: 20px;">Silo 接受 xUSD 作為抵押品</span>
                 </div>
                 <div style="text-align: center; color: var(--brand-blue);"><i class="fa-solid fa-arrow-up"></i> 傳染</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed var(--text-secondary); padding-bottom: 10px;">
-                    <span style="font-size: 20px; color: var(--text-secondary);">資金層</span>
-                    <span style="font-size: 20px;">Harvest 存入 USDC 到 Silo</span>
-                </div>
-                <div style="text-align: center; color: var(--brand-blue);"><i class="fa-solid fa-arrow-up"></i> 受災</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(72, 170, 224, 0.2); padding: 10px; border-radius: 8px;">
-                    <span style="font-size: 20px; color: var(--brand-white); font-weight: bold;">最上層 (我)</span>
-                    <strong style="font-size: 20px;">流動性枯竭，無法提款</strong>
+                <!-- VISUAL BOTTOM: SOURCE (STREAM) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--risk-color); padding-bottom: 10px;">
+                    <span style="font-size: 20px; color: var(--risk-color);">最底層 (震央)</span>
+                    <strong style="font-size: 20px;">Stream Finance 壞帳</strong>
                 </div>
             </div>
             
@@ -1147,8 +1179,8 @@
                     <li style="margin-bottom: 25px;">
                         <strong style="color: var(--risk-color); font-size: 20px;">2. 抵押品是借貸的核心</strong>
                         <p style="margin-top: 5px; font-size: 18px; color: var(--text-secondary);">
-                            以前只看 APY 高低，現在要看<strong>「借走我錢的人，抵押了什麼？」</strong>。<br>
-                            如果抵押品 (xUSD) 變壁紙，借款人絕對不會還錢。
+                            以前只看 APY 高低和平台名聲好壞，但最重要的是<strong>「借走我錢的人，抵押了什麼？」</strong>。<br>
+                            抵押品 (xUSD) 變壁紙，借款人就不會還錢。
                         </p>
                     </li>
                     <li>
@@ -1162,19 +1194,19 @@
         </div>
     </div>
 
-    <!-- Slide 30: Case 3 Regulatory Insights -->
-    <div class="slide" id="slide-30">
+    <!-- Slide 31: Case 3 Regulatory Insights -->
+    <div class="slide">
         <h2>監理啟示：鏈下資產管理的監管邊界</h2>
         <ul style="list-style: none;">
             <li style="margin-bottom: 30px;">
                 <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
                 <strong>區分純鏈上與鏈下管理：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">Stream Finance 雖然是 DeFi 協議，但核心業務是將錢交給「人」去操作。這類協議應被視為資產管理公司監管，而非純軟體。</p>
+                <p style="font-size: 20px; padding-left: 40px;">Stream Finance 雖然是 DeFi 協議，但核心業務是將錢交給鏈下的「人」去操作。這類協議應被視為資產管理公司監管，而非純軟體。</p>
             </li>
             <li style="margin-bottom: 30px;">
                 <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
                 <strong>儲備證明 (PoR) 的即時性：</strong> 
-                <p style="font-size: 20px; padding-left: 40px;">如果資產離開了鏈上智能合約，必須有 oracle 或審計機制實時回報鏈下餘額。不能等到「筆記本壞了」才發現錢沒了。</p>
+                <p style="font-size: 20px; padding-left: 40px;">如果資產離開了鏈上智能合約，必須有 oracle 或審計機制實時回報鏈下餘額。不能等到「筆電壞了」才發現錢沒了。</p>
             </li>
             <li style="margin-bottom: 30px;">
                 <i class="fa-solid fa-check" style="color: var(--brand-blue); margin-right: 15px;"></i>
@@ -1184,20 +1216,40 @@
         </ul>
     </div>
 
-    <!-- Slide 31: Conclusion -->
-    <div class="slide" id="slide-31">
-        <div style="text-align: center;">
-            <h1 style="font-size: 60px; margin-bottom: 40px;">預防勝於治療</h1>
-            <p style="font-size: 32px; color: var(--text-secondary);">看見風險，才能管理風險。</p>
-            <div style="margin-top: 80px; font-size: 40px; color: var(--brand-blue);">Q & A</div>
-            <div style="margin-top: 100px; color: var(--text-secondary); font-size: 20px;">
+    <!-- Slide 32: Conclusion -->
+    <div class="slide" id="slide-32">
+        <div style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <h1 style="font-size: 56px; margin-bottom: 50px;">感謝參與</h1>
+            
+            <div style="display: flex; justify-content: center; gap: 80px; align-items: start;">
+                <!-- Q&A Section -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 400px;">
+                    <div style="font-size: 36px; color: var(--brand-blue); margin-bottom: 20px;">Q & A</div>
+                    <a href="https://app.sli.do/event/f4BXbj9FuYpHY39tWaNJzR" target="_blank">
+                        <img src="https://duk.tw/2FJ2y6.png" class="qr-img" style="width: 300px; height: 300px;" alt="Slido QR Code">
+                    </a>
+                    <p style="margin-top: 20px; font-size: 20px;">匿名提問平台</p>
+                </div>
+
+                <!-- Survey Section -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 400px;">
+                    <div style="font-size: 36px; color: var(--risk-color); margin-bottom: 20px;">滿意度調查</div>
+                    <img src="https://duk.tw/xMBGKM.png" class="qr-img" style="width: 300px; height: 300px; border-color: var(--risk-color);" alt="Survey QR Code">
+                    <p style="margin-top: 20px; font-size: 20px; color: var(--brand-white);">
+                        幫助我講得更好<br>
+                        <span style="color: var(--risk-color); font-weight: bold;">🎁 贈送區塊勢付費訂閱</span>
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; color: var(--text-secondary); font-size: 24px;">
                 區塊勢｜許明恩
             </div>
         </div>
     </div>
 
     <!-- Controls -->
-    <div class="page-number" id="page-num">1 / 31</div>
+    <div class="page-number" id="page-num">1 / 32</div>
     <div class="controls">
         <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
